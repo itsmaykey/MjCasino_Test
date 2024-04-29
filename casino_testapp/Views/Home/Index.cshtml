@@ -1,4 +1,110 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Dashboard";
+
 }
 
+<style>
+    .customstyle {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .forcenter {
+        text-align: center;
+        align-items: center;
+    }
+</style>
+
+<div ng-controller="dashboardCtrlr">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <ul class="nav nav-tabs nav-tabs-bordered d-flex align-items-center customstyle" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview"
+                                    aria-selected="true" role="tab">
+                                <img src="~/Content/assets/img/logo.png"
+                                     alt="">
+                            </button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit"
+                                    aria-selected="false" tabindex="-1" role="tab">
+                                <img src="~/Content/assets/img/logo.png"
+                                     alt="">
+                            </button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings"
+                                    aria-selected="false" tabindex="-1" role="tab">
+                                <img src="~/Content/assets/img/logo.png"
+                                     alt="">
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password"
+                                    aria-selected="false" tabindex="-1" role="tab">
+                                <img src="~/Content/assets/img/logo.png"
+                                     alt="">
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-overview"
+                                    aria-selected="true" role="tab">
+                                <img src="~/Content/assets/img/logo.png"
+                                     alt="">
+                            </button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit"
+                                    aria-selected="false" tabindex="-1" role="tab">
+                                <img src="~/Content/assets/img/logo.png"
+                                     alt="">
+                            </button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings"
+                                    aria-selected="false" tabindex="-1" role="tab">
+                                <img src="~/Content/assets/img/logo.png"
+                                     alt="">
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password"
+                                    aria-selected="false" tabindex="-1" role="tab">
+                                <img src="~/Content/assets/img/logo.png"
+                                     alt="">
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card" style="background:yellow;">
+                <i class="bi bi-megaphone">
+                    <label style=" text-align:center;">
+                        Announcements
+                    </label>
+                </i>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card forcenter>
+                <a class=" flex">
+                <img src="~/Content/assets/img/sample.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/AngularJs/Dashboard/dashboardCtrlr.js"></script>

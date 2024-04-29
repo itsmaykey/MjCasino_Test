@@ -1,5 +1,13 @@
 ﻿<!DOCTYPE html>
+<style>
+    .customstyle {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
 <html lang="en">
+
+
 
 <head>
     <meta charset="utf-8">
@@ -47,25 +55,33 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
-                <img src="assets/img/logo.png" alt="">
+                <img src="~/Content/assets/img/logo.png" alt="">
                 <span class="d-none d-lg-block">Mj Casino</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
+        <div class="search-bar" style="display: hidden;">
+
+        </div>
 
         <div class="search-bar">
-            <form class="search-form d-flex align-items-center" method="POST" action="#">
-                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+            <form class="search-form d-flex align-items-center" style="justify-content: flex-end;" method="POST"
+                action="#">
+                <input type="text" name="query" placeholder="0.00" title="Enter search keyword" style="width: 40% ;"
+                    disabled>
+                <button type="submit" title="cash"><i class="bi bi-cash-coin"></i></button>
             </form>
         </div><!-- End Search Bar -->
 
         <nav class="header-nav ms-auto">
+            <div class="d-flex">
+            </div>
             <ul class="d-flex align-items-center">
-
                 <li class="nav-item d-block d-lg-none">
                     <a class="nav-link nav-icon search-bar-toggle " href="#">
-                        <i class="bi bi-search"></i>
+                        <input type="text" name="query" placeholder="0.00" title="Enter search keyword"
+                            style="width: 40% ;" disabled>
+                        <i class="bi bi-cash-coin"></i>
                     </a>
                 </li><!-- End Search Icon-->
 
@@ -162,7 +178,7 @@
 
                         <li class="message-item">
                             <a href="#">
-                                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
+                                <img src="~/Content/assets/img/messages-1.jpg" alt="" class="rounded-circle">
                                 <div>
                                     <h4>Maria Hudson</h4>
                                     <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -176,7 +192,7 @@
 
                         <li class="message-item">
                             <a href="#">
-                                <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
+                                <img src="~/Content/assets/img/messages-2.jpg" alt="" class="rounded-circle">
                                 <div>
                                     <h4>Anna Nelson</h4>
                                     <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -190,7 +206,7 @@
 
                         <li class="message-item">
                             <a href="#">
-                                <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
+                                <img src="~/Content/assets/img/messages-3.jpg" alt="" class="rounded-circle">
                                 <div>
                                     <h4>David Muldon</h4>
                                     <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -213,7 +229,7 @@
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <img src="~/Content/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
                         <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
                     </a><!-- End Profile Iamge Icon -->
 
@@ -311,28 +327,30 @@
 
     </aside><!-- End Sidebar-->
 
-    <main id="main" class="main">
-
-        <section class="section">
-            @RenderBody()
-        </section>
+    <main id="main" class="main " >
+        @*<section class="section">*@
+            <div class="content-wrapper" ng-app="MJCasinoapp">
+                @RenderBody()
+            </div>
+        @*</section>*@
     </main><!-- End #main -->
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>Mj Casino</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Mj Casino, 2024</span></strong>. All Rights Reserved
         </div>
-        <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
+
     </footer><!-- End Footer -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
+
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/AngularJs/myApp.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+   
+
 
     <!-- Vendor JS Files -->
     <script src="~/Content/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -346,6 +364,10 @@
 
     <!-- Template Main JS File -->
     <script src="~/Content/assets/js/main.js"></script>
+
+
+  
+    @*@RenderSection("scripts", required: false)*@
 
 </body>
 

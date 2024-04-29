@@ -10,9 +10,7 @@ namespace casino_testapp
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"
-
                         ));
-
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
@@ -29,14 +27,11 @@ namespace casino_testapp
                     "~/Content/assets/vendor/chart.js/chart.umd.js",
                     "~/Content/assets/vendor/echarts/echarts.min.js",
                     "~/Content/assets/vendor/quill/quill.js",
-                    "~/Content/assets/vendor/simple-datatables/simple-datatables.js"
+                    "~/Content/assets/vendor/simple-datatables/simple-datatables.js",
                     "~/Content/assets/vendor/tinymce/tinymce.min.js",
                     "~/Content/assets/vendor/php-email-form/validate.js",
-                    "~/Content/assets/js/main.js"
-
-
-
-                     ));
+                    "~/Content/assets/js/main.js",
+                    "~/Script/AngularJs/myApp.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                     //"~/Content/bootstrap.css",
@@ -48,15 +43,10 @@ namespace casino_testapp
                     "~/Content/assets/vendor/quill/quill.snow.css",
                     "~/Content/assets/vendor/quill/quill.bubble.css",
                     "~/Content/assets/vendor/remixicon/remixicon.css",
-                    "~/Content/assets/vendor/simple-datatables/style.css",
-
-
-
+                    "~/Content/assets/vendor/simple-datatables/style.css"
                       ));
-
-            // Set EnableOptimizations to false for debugging. For more information,
-            // visit http://go.microsoft.com/fwlink/?LinkId=301862
-            BundleTable.EnableOptimizations = true;
+          
+        
         }
     }
 }
