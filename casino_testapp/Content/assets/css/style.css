@@ -38,6 +38,33 @@ h6 {
   font-family: "Nunito", sans-serif;
 }
 
+.navbars {
+    display:unset;
+}
+
+.navbuttons {
+    display: inline-block;
+    overflow: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    margin: 0 0 1em;
+    white-space: nowrap;
+}
+.navbuttons LI {
+    display: inline-block;
+    vertical-align: top;
+}
+/*--------------------------------------------------------------
+# backgrounds
+--------------------------------------------------------------*/
+.dashboardBG {
+    background-image: url('~/Content/assets/img/webbackground.jpg');
+    background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+}
+
+
 /*--------------------------------------------------------------
 # Main
 --------------------------------------------------------------*/
@@ -331,7 +358,7 @@ h6 {
 
 /* Bordered Tabs */
 .nav-tabs-bordered {
-  border-bottom: 2px solid #ebeef4;
+  border-bottom: none;
 }
 
 .nav-tabs-bordered .nav-link {
@@ -341,14 +368,23 @@ h6 {
 }
 
 .nav-tabs-bordered .nav-link:hover,
-.nav-tabs-bordered .nav-link:focus {
-  color: #4154f1;
+.nav-tabs-bordered .nav-link:focus .image-container img:hover {
+  zoom: 1.1;  
+  color: transparent;
+
 }
 
 .nav-tabs-bordered .nav-link.active {
-  background-color: #fff;
-  color: #4154f1;
-  border-bottom: 2px solid #4154f1;
+  zoom: 1.1; 
+  background-color: transparent;
+  color: transparent;
+  border-bottom: 2px solid #080505;
+}
+.nav-link.active  img {
+ border-radius: 100%;
+  border: 5px solid rgb(218, 255, 8)
+  
+  
 }
 
 /*--------------------------------------------------------------
@@ -686,7 +722,7 @@ h6 {
   font-weight: 600;
   color: #4154f1;
   transition: 0.3;
-  background: #f6f9ff;
+  /* background: #f6f9ff; */
   padding: 10px 15px;
   border-radius: 4px;
 }
