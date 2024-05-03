@@ -38,10 +38,19 @@ h6 {
   font-family: "Nunito", sans-serif;
 }
 
+::-webkit-scrollbar{
+  display: none;
+}
+
+
 .navbars {
     display:unset;
 }
 
+.navbars::-webkit-scrollbar{
+
+  display: none;
+}
 .navbuttons {
     display: inline-block;
     overflow: auto;
@@ -49,6 +58,7 @@ h6 {
     max-width: 100%;
     margin: 0 0 1em;
     white-space: nowrap;
+    
 }
 .navbuttons LI {
     display: inline-block;
@@ -357,9 +367,9 @@ h6 {
 }
 
 /* Bordered Tabs */
-.nav-tabs-bordered {
-  border-bottom: none;
-}
+/*.nav-tabs-bordered {
+  border-bottom: 2px solid #ebeef4;
+}*/
 
 .nav-tabs-bordered .nav-link {
   margin-bottom: -2px;
@@ -369,19 +379,19 @@ h6 {
 
 .nav-tabs-bordered .nav-link:hover,
 .nav-tabs-bordered .nav-link:focus .image-container img:hover {
-  zoom: 1.1;  
+  /*zoom: 1.1;*/  
   color: transparent;
 
 }
 
 .nav-tabs-bordered .nav-link.active {
-  zoom: 1.1; 
+  /*zoom: 1.1;*/ 
   background-color: transparent;
   color: transparent;
-  border-bottom: 2px solid #080505;
+ 
 }
-.nav-link.active  img {
- border-radius: 100%;
+.nav-link.active  img1 {
+    border-radius: 100%;
   border: 5px solid rgb(218, 255, 8)
   
   
@@ -633,20 +643,9 @@ h6 {
 /*--------------------------------------------------------------
 # Sidebar
 --------------------------------------------------------------*/
-.sidebar {
+.sidebar { 
   position: fixed;
-  top: 60px;
-  left: 0;
-  bottom: 0;
-  width: 300px;
-  z-index: 996;
-  transition: all 0.3s;
-  padding: 20px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #aab7cf transparent;
-  box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
+  left: -300px;
 }
 
 @media (max-width: 1199px) {
@@ -669,13 +668,25 @@ h6 {
 
   #main,
   #footer {
-    margin-left: 300px;
+    margin-left: 0px;
   }
 }
 
 @media (max-width: 1199px) {
   .toggle-sidebar .sidebar {
+    top: 60px;
     left: 0;
+    bottom: 0;
+    width: 200px;
+    z-index: 996;
+    transition: all 0.3s;
+    padding: 20px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #aab7cf transparent;
+    box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+    background-color: #fff;
+  
   }
 }
 
@@ -683,11 +694,23 @@ h6 {
 
   .toggle-sidebar #main,
   .toggle-sidebar #footer {
-    margin-left: 0;
+    margin-left: 300px;
   }
 
-  .toggle-sidebar .sidebar {
-    left: -300px;
+  .toggle-sidebar .sidebar { 
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  z-index: 996;
+  transition: all 0.3s;
+  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #aab7cf transparent;
+  box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+  background-color: #fff;
+
   }
 }
 

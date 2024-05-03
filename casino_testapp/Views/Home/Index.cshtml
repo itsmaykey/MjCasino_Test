@@ -16,92 +16,93 @@
         height: auto;
         /* ie8 */
     }
-        .forcenter {
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-        }
 
-        .parent-element {
-            text-align: center;
-        }
+    .forcenter {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
 
-        .parent-element ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
+    .parent-element {
+        text-align: center;
+    }
 
-        .parent-element ul li {
-            margin: 0;
-            padding: 0;
-        }
-    
+    .parent-element ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .parent-element ul li {
+        margin: 0;
+        padding: 0;
+    }
 </style>
 
 <div ng-controller="dashboardCtrlr">
     <div class="nav navbars">
-        <ul class="nav-tabs nav-tabs-bordered d-flex navbuttons" id="borderedTabJustified" role="tablist">
+        <ul class="nav-tabs nav-tabs-bordered d-flex navbuttons img1" id="borderedTabJustified" role="tablist"
+            style="border-bottom:none;">
             <li class="nav-item flex-fill" role="presentation">
                 <button class="nav-link w-45 active" id="home-tab" data-bs-toggle="tab"
-                        data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                        aria-selected="true">
-                    <img src="~/Content/assets/img/Dashboard/Home.png" alt="">
+                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
+                    aria-selected="true">
+                    <img src="~/Content/assets/img/Dashboard/Home.png" alt="" class="">
                 </button>
             </li>
             <li class="nav-item flex-fill" role="presentation">
                 <button class="nav-link w-45" id="home-tab" data-bs-toggle="tab"
-                        data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                        aria-selected="true">
+                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
+                    aria-selected="true">
                     <img src="~/Content/assets/img/Dashboard/Slotmachine.png" alt="">
                 </button>
             </li>
             <li class="nav-item flex-fill" role="presentation">
                 <button class="nav-link w-45" id="home-tab" data-bs-toggle="tab"
-                        data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                        aria-selected="true">
+                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
+                    aria-selected="true">
                     <img src="~/Content/assets/img/Dashboard/CARDs.png" alt="">
                 </button>
             </li>
             <li class="nav-item flex-fill" role="presentation">
                 <button class="nav-link w-45" id="home-tab" data-bs-toggle="tab"
-                        data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                        aria-selected="true">
+                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
+                    aria-selected="true">
                     <img src="~/Content/assets/img/Dashboard/Crown.png" alt="">
                 </button>
             </li>
             <li class="nav-item flex-fill" role="presentation">
                 <button class="nav-link w-45" id="home-tab" data-bs-toggle="tab"
-                        data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                        aria-selected="true">
+                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
+                    aria-selected="true">
                     <img src="~/Content/assets/img/Dashboard/Fish.png" alt="">
                 </button>
             </li>
             <li class="nav-item flex-fill" role="presentation">
                 <button class="nav-link w-45" id="home-tab" data-bs-toggle="tab"
-                        data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                        aria-selected="true">
+                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
+                    aria-selected="true">
                     <img src="~/Content/assets/img/Dashboard/Ball.png" alt="">
                 </button>
             </li>
             <li class="nav-item flex-fill" role="presentation">
                 <button class="nav-link w-45" id="home-tab" data-bs-toggle="tab"
-                        data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                        aria-selected="true">
+                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
+                    aria-selected="true">
                     <img src="~/Content/assets/img/Dashboard/weather-cock.png" alt="">
                 </button>
             </li>
             <li class="nav-item flex-fill" role="presentation">
                 <button class="nav-link w-45" id="home-tab" data-bs-toggle="tab"
-                        data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                        aria-selected="true">
+                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
+                    aria-selected="true">
                     <img src="~/Content/assets/img/Dashboard/Arcade.png" alt="">
                 </button>
             </li>
 
         </ul>
     </div>
-  
+
     <div class="row">
         <div class="col-sm-12">
             <label style="background:yellow;">
@@ -127,15 +128,17 @@
 
             <div class="card" style="background: transparent;">
                 <div class="card-body">
-                    <h5 class="card-title">Bordered Tabs Justified</h5>
-
                     <!-- Bordered Tabs Justified -->
                     <ul class="nav nav-tabs nav-tabs-bordered d-flex" id="borderedTabJustified" role="tablist"
                         style="font-style: color: #000;">
                         <li class="nav-item flex-fill" role="presentation">
-                            <button class="nav-link w-100 active" id="home-tab" data-bs-toggle="tab"
+                            <button class="nav-link w-100 active" id="DTWDice" data-bs-toggle="tab"
                                 data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                                aria-selected="true">Top Daily Win</button>
+                                aria-selected="true">
+                                <img src="~/Content/assets/img/DailyTopWin/Dice.png" alt="">
+                                <h5 style="color:white">Daily Top Win</h5>
+                                </5>
+                            </button>
                         </li>
                         <li class="nav-item flex-fill" role="presentation">
                             <button class="nav-link w-100" id="profile-tab" data-bs-toggle="tab"
