@@ -371,6 +371,12 @@ h6 {
   border-bottom: 2px solid #ebeef4;
 }*/
 
+
+.nav-tabs .nav-link.active {
+  background: currentColor;
+}
+
+
 .nav-tabs-bordered .nav-link {
   margin-bottom: -2px;
   border: none;
@@ -387,7 +393,7 @@ h6 {
 .nav-tabs-bordered .nav-link.active {
   /*zoom: 1.1;*/ 
   background-color: transparent;
-  color: transparent;
+  ;
  
 }
 .nav-link.active  img {
@@ -729,6 +735,8 @@ h6 {
 .sidebar-nav .nav-item {
   margin-bottom: 5px;
 }
+
+
 
 .sidebar-nav .nav-heading {
   font-size: 11px;
