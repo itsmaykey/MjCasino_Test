@@ -4,123 +4,119 @@
 }
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-    .customstyle {
-        display: flex;
-        justify-content: space-between;
-    }
 
-    .img {
-        display: inline;
-        max-width: 100%;
-        height: auto;
-        /* ie8 */
-    }
-
-    .forcenter {
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .parent-element {
-        text-align: center;
-    }
-
-    .parent-element ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .parent-element ul li {
-        margin: 0;
-        padding: 0;
-    }
-</style>
 
 <div ng-controller="dashboardCtrlr">
-    <div class="nav navbars">
+    <div class="nav iconbg">
         <ul class="nav-tabs nav-tabs-bordered d-flex navbuttons" id="borderedTabJustified" role="tablist"
             style="border-bottom:none;">
             <li class="nav-item flex-fill" role="presentation">
-                <button class="nav-link w-45 active" id="home-tab" data-bs-toggle="tab"
-                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                    aria-selected="true">
-                    <img src="~/Content/assets/img/Dashboard/Home.png" alt="" class="">
-                </button>
-            </li>
-            <li class="nav-item flex-fill" role="presentation">
-                <button class="nav-link w-45" id="home-tab" data-bs-toggle="tab"
-                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                    aria-selected="true">
-                    <img src="~/Content/assets/img/Dashboard/Slotmachine.png" alt="">
-                </button>
-            </li>
-            <li class="nav-item flex-fill" role="presentation">
-                <button class="nav-link w-45" id="home-tab" data-bs-toggle="tab"
-                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                    aria-selected="true">
-                    <img src="~/Content/assets/img/Dashboard/CARDs.png" alt="">
-                </button>
-            </li>
-            <li class="nav-item flex-fill" role="presentation">
-                <button class="nav-link w-45" id="home-tab" data-bs-toggle="tab"
-                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                    aria-selected="true">
-                    <img src="~/Content/assets/img/Dashboard/Crown.png" alt="">
-                </button>
-            </li>
-            <li class="nav-item flex-fill" role="presentation">
-                <button class="nav-link w-45" id="home-tab" data-bs-toggle="tab"
-                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                    aria-selected="true">
-                    <img src="~/Content/assets/img/Dashboard/Fish.png" alt="">
-                </button>
-            </li>
-            <li class="nav-item flex-fill" role="presentation">
-                <button class="nav-link w-45" id="home-tab" data-bs-toggle="tab"
-                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                    aria-selected="true">
-                    <img src="~/Content/assets/img/Dashboard/Ball.png" alt="">
-                </button>
-            </li>
-            <li class="nav-item flex-fill" role="presentation">
-                <button class="nav-link w-45" id="home-tab" data-bs-toggle="tab"
-                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                    aria-selected="true">
-                    <img src="~/Content/assets/img/Dashboard/weather-cock.png" alt="">
-                </button>
-            </li>
-            <li class="nav-item flex-fill" role="presentation">
-                <button class="nav-link w-45" id="home-tab" data-bs-toggle="tab"
-                    data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home"
-                    aria-selected="true">
-                    <img src="~/Content/assets/img/Dashboard/Arcade.png" alt="">
-                </button>
-            </li>
+                <a class="nav-link w-45 active" id="home-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Home/Index">
+                    <img src="~/Content/assets/img/Dashboard/Home.png" alt="">
+                    <span style="margin-left:-55px; display:inline; color:white;">Home</span>
+                </a>
 
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45" id="Slot-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Gamelist/Slot">
+                    <img src="~/Content/assets/img/Dashboard/Slotmachine.png" alt="">
+                </a>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45" id="Card-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Gamelist/Card">
+                    <img src="~/Content/assets/img/Dashboard/CARDs.png" alt="">
+                </a>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45" id="Crown-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Gamelist/Crown">
+                    <img src="~/Content/assets/img/Dashboard/Crown.png" alt="">
+                </a>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45" id="Fish-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Gamelist/Fish">
+                    <img src="~/Content/assets/img/Dashboard/Fish.png" alt="">
+                </a>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45" id="Ball-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Gamelist/Ball">
+                    <img src="~/Content/assets/img/Dashboard/Ball.png" alt="">
+                </a>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45" id="Cock-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Gamelist/Cockfight">
+                    <img src="~/Content/assets/img/Dashboard/weather-cock.png" alt="">
+                </a>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45" id="Arcade-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Gamelist/Arcade">
+                    <img src="~/Content/assets/img/Dashboard/Arcade.png" alt="">
+
+                </a>
+            </li>
         </ul>
     </div>
 
     <div class="row">
         <div class="col-sm-12">
-            <label style="background:yellow;">
-                <i class="bi bi-megaphone">
-                    <span style=" text-align:center; ">
-                        Announcements
-                    </span>
-                </i>
-            </label>
+            <span style="display: flex;background:yellow; margin-bottom:5px;">
+                <i class="bi bi-megaphone"></i>
+                <label style="display:flex; width:100%">
+                    <marquee>
+                        Announcement
+                    </marquee>
+                </label>
+            </span>
 
         </div>
-        <div class="col-xl-12">
-            <div class="card">
-                <img src="~/Content/assets/img/thumbnail/Games.png" alt="">
+        <div class="col-sm-12">
+            <div class="card" style="background-color: transparent;">
+                <div class="card-body">
+                    <!-- Slides with controls -->
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="~/Content/assets/img/thumbnail/Games.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/Content/assets/img/Background/BG3.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            @* <div class="carousel-item">
+                            <img src="~/Content/assets/img/Dashboard/ICONS_BG2.png" class="d-block w-100" alt="...">
+                            </div> *@
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+
+                    </div><!-- End Slides with controls -->
+
+                </div>
             </div>
         </div>
+        @*
+        <div class="col-xl-12">
+        <div class="card nobg">
+        <img src="~/Content/assets/img/thumbnail/Games.png" alt="">
+        </div>
+        </div> *@
     </div>
-    <div style="background: transparent;">
+    <div class="nobg" style="padding-bottom:20px;">
         <div class="nav navbars">
             <!-- Default Tabs -->
             <ul class=" nav-tabs d-flex navbuttons" id="myTabjustified" role="tablist">
@@ -130,8 +126,6 @@
                         aria-selected="true">
                         <img src="~/Content/assets/img/DailyTopWin/DICE.png" alt="">
                         <label style="color:white">Daily Top Win</label>
-
-
                     </button>
                 </li>
                 <li class="nav-item flex-fill" role="presentation">
@@ -165,7 +159,7 @@
                 </li>
             </ul>
             <div class="tab-content pt-2" id="myTabjustifiedContent"
-                style="background-color: rgba(249, 180, 45, 0.1);, 0.5; color: white;">
+                style="background-color: rgba(249, 180, 45, 0.1);, 0.5; color: white; height:300px; overflow-y:auto;">
                 <div class="tab-pane fade active show" id="home-justified" role="tabpanel" aria-labelledby="home-tab">
                     Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est
                     unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga
@@ -196,12 +190,96 @@
                     Qui amet ipsum iure. Dignissimos fuga tempore dolor.
                 </div>
             </div><!-- End Default Tabs -->
+        </div>
+    </div>
+    <div class=" card btn-bg row" style="margin-bottom: -25px;">
+        <div class="col-xl-12 rowalign">
+            <div class="card-body" style="display:flex; justify-content:space-around;">
+                <button type="button" class="btn btn-bg " data-bs-toggle="modal" data-bs-target="#LocalGames">
+                    <img src="~/Content/assets/img/Assortedgames/LocalGames.png" alt="">
+                </button>
+                <button type="button" class="btn btn-bg "> <img src="~/Content/assets/img/Assortedgames/MineGames.png"
+                        alt="">
+                </button>
+                <button type="button" class="btn btn-bg "> <img src="~/Content/assets/img/Assortedgames/FirstPerson.png"
+                        alt="">
+                </button>
+                <button type="button" class="btn btn-bg "><img src="~/Content/assets/img/Assortedgames/GameShow.png"
+                        alt="">
+                </button>
+                <button type="button" class="btn btn-bg "> <img src="~/Content/assets/img/Assortedgames/BingoGames.png"
+                        alt="">
+                </button>
+                <button type="button" class="btn btn-bg"> <img src="~/Content/assets/img/Assortedgames/CrashGame.png"
+                        alt="">
+                </button>
+            </div>
 
         </div>
     </div>
 
-</div>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="center">POPULAR GAMES</h3>
+        </div>
+        <div class="card-body">
+            <div class="row col-12 ">
+                <div class="col-4 w-45" ng-repeat="x in Gamelist | limitTo:limit">
+                    <button class="form-control" type="button" ng-click="getdata(x)"
+                        style="background-color: transparent; border:none;">
+                        <img src="{{x.GameImg}}" style="width: 30%;" ng-model="x"> </img>
+                    </button>
 
-@section scripts {
-    <script src="~/Scripts/AngularJs/Dashboard/dashboardCtrlr.js"></script>
-}
+                </div>
+            </div>
+            <button type="button" ng-click="viewmore()" style="text-align: center;">View more</button>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="center">TABLE GAMES</h3>
+        </div>
+        <div class="card-body">
+
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="center">LIVE GAMES</h3>
+            </div>
+            <div class="card-body">
+
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="LocalGames" tabindex="-1" data-bs-backdrop="false" style="display: none;"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Local Games</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Non omnis incidunt qui sed occaecati magni asperiores est mollitia. Soluta at et reprehenderit.
+                        Placeat autem numquam et fuga numquam. Tempora in facere consequatur sit dolor ipsum.
+                        Consequatur
+                        nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div> @*//ng-controller *@
+
+    @section scripts {
+        <script src="~/Scripts/AngularJs/Dashboard/dashboardCtrlr.js"></script>
+    }

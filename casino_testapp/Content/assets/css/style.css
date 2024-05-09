@@ -19,6 +19,10 @@ body {
   color: #444444;
 }
 
+.center {
+  text-align: center;
+  align-items: center;
+}
 a {
   color: #4154f1;
   text-decoration: none;
@@ -38,10 +42,37 @@ h6 {
   font-family: "Nunito", sans-serif;
 }
 
+
+
 ::-webkit-scrollbar{
   display: none;
 }
 
+
+.nobg {
+  background: transparent;
+  background-color: transparent;
+}
+
+.layoutbg {
+  background-image: url('../img/Background/BG2.jpg');
+  display: block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.iconbg {
+  background-image: url('../img/Dashboard/ICONS_BG2.png');
+  display: block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin-bottom: -10px;
+
+}
 
 .navbars {
     display:unset;
@@ -64,6 +95,18 @@ h6 {
     display: inline-block;
     vertical-align: top;
 }
+.rowalign {
+  display: inline-block;
+  overflow: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  margin: 0 0 1em;
+  white-space: nowrap;
+}
+.rowbuttonalign {
+  display: inline-block;
+  vertical-align: top;
+}
 /*--------------------------------------------------------------
 # backgrounds
 --------------------------------------------------------------*/
@@ -73,7 +116,16 @@ h6 {
      background-repeat: no-repeat;
      background-size: cover;
 }
-
+/*--------------------------------------------------------------
+# modal backgrounds
+--------------------------------------------------------------*/
+.modal-content {
+  color: white;
+  background-image: url('../img/Background/BG.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 /*--------------------------------------------------------------
 # Main
@@ -1259,6 +1311,11 @@ h6 {
   font-weight: 700;
   color: #012970;
   margin-bottom: 30px;
+}
+
+.btn-bg {
+  background-color: transparent;
+  background: transparent;
 }
 
 .error-404 .btn {
