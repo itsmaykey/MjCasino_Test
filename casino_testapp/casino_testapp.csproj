@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\GamelistController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -575,6 +576,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\AngularJs\Authorization\login.js" />
+    <Content Include="Scripts\AngularJs\Authorization\loginAuthApp.js" />
     <Content Include="Scripts\AngularJs\Dashboard\dashboardCtrlr.js" />
     <Content Include="Scripts\AngularJs\Gamelist\slotCtrlr.js" />
     <Content Include="Scripts\AngularJs\myApp.js" />
@@ -740,7 +743,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Gamelist\Slot.cshtml" />
     <Content Include="Views\Gamelist\Card.cshtml" />
     <Content Include="Views\Gamelist\Crown.cshtml" />
@@ -748,6 +750,8 @@
     <Content Include="Views\Gamelist\Ball.cshtml" />
     <Content Include="Views\Gamelist\Cockfight.cshtml" />
     <Content Include="Views\Gamelist\Arcade.cshtml" />
+    <Content Include="Views\Authorization\Login.cshtml" />
+    <Content Include="Views\Authorization\Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
