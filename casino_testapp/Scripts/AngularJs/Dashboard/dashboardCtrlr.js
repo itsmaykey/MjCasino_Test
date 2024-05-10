@@ -1,5 +1,12 @@
 ﻿
- app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', function (s, h, f) {
+app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', function (s, h, f) {
+    s.getVendors = function () {
+        h.post("../api/GamesApi/GetVendors").success(function (data) {
+            console.log(data);
+        })
+    }
+
+    s.getVendors();
     s.p =
     [
         [
