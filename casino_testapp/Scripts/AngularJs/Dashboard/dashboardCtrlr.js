@@ -1,12 +1,21 @@
 ﻿
 app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', function (s, h, f) {
     s.getVendors = function () {
-        h.post("../api/GamesApi/GetVendors").success(function (data) {
+        var uri = "../api/GamesApi/GetVendors";
+        h.post(url).success(function (data) {
             console.log(data);
         })
     }
 
     s.getVendors();
+
+    s.getVendorGames = function () {
+        h.post("../api/GamesApi/GetVendorGames?code=JL&page=1&size=100").success(function (data) {
+            console.log(data);
+        })
+    }
+    s.getVendorGames();
+
     s.p =
     [
         [

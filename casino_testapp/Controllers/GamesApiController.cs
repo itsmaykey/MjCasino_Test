@@ -29,5 +29,30 @@ namespace casino_testapp.Controllers
                 throw;
             }
         }
+
+        [HttpPost]
+        [Route("GetVendorGames")]
+        public async Task<IHttpActionResult> GetVendorGames(string code, int page, int size)
+        {
+            var games = new Games();
+            var httpClient = new HttpClient();
+            try
+            {
+                var response = await httpClient.PostAsync
+                (
+                    games.getBaseUrl("/api/integrations/allinone/gamelist"), 
+                    new FormUrlEncodedContent
+                    (
+                        games.getKeyVendorGames(code, page, size)
+                    )
+                );
+                return Ok(await response.Content.ReadAsStringAsync());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

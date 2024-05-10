@@ -22,6 +22,18 @@ namespace casino_testapp.Models
             };
         }
 
+        public Dictionary<string, string> getKeyVendorGames(string code, int page, int size)
+        {
+            return new Dictionary<string, string> {
+                { "auth", AUTH },
+                { "id", ID },
+                { "key", KEY },
+                { "code", code },
+                { "page", page.ToString() },
+                { "size", size.ToString() }
+            };
+        }
+
         public string getBaseUrl(string endpoint)
         {
             return BASE_URL + endpoint;
