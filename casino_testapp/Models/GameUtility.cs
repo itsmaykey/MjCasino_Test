@@ -5,7 +5,7 @@ using System.Web;
 
 namespace casino_testapp.Models
 {
-    public class Games
+    public class GameUtility
     {
         public string AUTH = "NzXG9de5khdQn4iUYdXYqR5JOntnOPcy";
         public string ID = "oqlc6nyg";
