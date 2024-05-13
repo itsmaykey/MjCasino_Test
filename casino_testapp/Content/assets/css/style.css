@@ -9,6 +9,11 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+.bi bi-arrow-left {
+  height: 150px;
+  color: white;
+}
 :root {
   scroll-behavior: smooth;
 }
@@ -96,13 +101,45 @@ h6 {
     vertical-align: top;
 }
 .rowalign {
-  display: inline-block;
+  display: flex;
   overflow: auto;
   overflow-y: hidden;
   max-width: 100%;
   margin: 0 0 1em;
   white-space: nowrap;
 }
+.responsiveimg {
+  width: 13%;
+}
+.img-size {
+    width: 130px;
+    height: 130px;
+}
+@media (max-width: 1199px) {
+  .responsiveimg {
+    width: 30%;
+  }
+  .img-size{
+    width: 80px;
+    height: 80px;
+  }
+  .limitheight {
+    height: 500px;
+
+  }
+}
+@media (max-width: 1199px) {
+  .rowalign {
+    display: flex;
+    overflow: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    max-width: 100%;
+    margin: 0 0 1em;
+    white-space: nowrap;
+  }
+}
+
 .rowbuttonalign {
   display: inline-block;
   vertical-align: top;

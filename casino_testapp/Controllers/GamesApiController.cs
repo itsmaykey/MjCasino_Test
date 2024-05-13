@@ -23,7 +23,7 @@ namespace casino_testapp.Controllers
             {
                 var response = await httpClient.PostAsync(games.getBaseUrl("/api/integrations/allinone/vendor"), new FormUrlEncodedContent(games.getKey()));
                 var responseJsonString = await response.Content.ReadAsStringAsync();
-                var objDeserialized = JsonConvert.DeserializeObject<VendorsDatum>(responseJsonString);
+                var objDeserialized = JsonConvert.DeserializeObject<GameUrlDatum>(responseJsonString);
 
                 return Ok(objDeserialized);
             }
@@ -36,7 +36,7 @@ namespace casino_testapp.Controllers
 
         [HttpPost]
         [Route("GetVendorGames")]
-        public async Task<IHttpActionResult> GetVendorGames(string code, int page, int size)
+        public async Task<IHttpActionResult> GetVendorGames(string code, int size, string gameType)
         {
             var games = new GameUtility();
             var httpClient = new HttpClient();
@@ -44,16 +44,16 @@ namespace casino_testapp.Controllers
             {
                 var response = await httpClient.PostAsync
                 (
-                    games.getBaseUrl("/api/integrations/allinone/gamelist"), 
+                    games.getBaseUrl("/api/integrations/allinone/gamelist"),
                     new FormUrlEncodedContent
                     (
-                        games.getKeyVendorGames(code, page, size)
+                        games.getKeyVendorGames(code, size, gameType)
                     )
                 );
 
                 var responseJsonString = await response.Content.ReadAsStringAsync();
                 var objDeserialized = JsonConvert.DeserializeObject<GamesData>(responseJsonString);
-
+                
                 var vendorGames = new List<Game>();
                 foreach (var item in objDeserialized.data.data.games)
                 {
@@ -66,10 +66,56 @@ namespace casino_testapp.Controllers
                     game.language = item[5];
                     game.platform = item[6];
                     game.currency = item[7];
-                    vendorGames.Add(game);
+
+                    if (game.gameType == gameType)
+                    {
+                        vendorGames.Add(game);
+                    }
+                    else
+                    {
+
+                    }
+                    
                 }
 
-                return Ok(new { VendorGamesData = objDeserialized, ConvertedData = vendorGames });
+                return Ok(new
+                {
+                    VendorGamesData = objDeserialized,
+                    ConvertedData = vendorGames
+                });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+
+        [HttpPost]
+        [Route("GetVendorGameUrl")]
+        public async Task<IHttpActionResult> GetVendorGameUrl(string code, string clientIP)
+        {
+            var games = new GameUtility();
+            var httpClient = new HttpClient();
+            try
+            {
+                var response = await httpClient.PostAsync
+                (
+                    games.getBaseUrl("/api/integrations/allinone/game/url"),
+                    new FormUrlEncodedContent
+                    (
+                        games.getKeyVendorGameUrl(code, clientIP)
+                    )
+                );
+
+                var responseJsonString = await response.Content.ReadAsStringAsync();
+                var objDeserialized = JsonConvert.DeserializeObject<GameUrl>(responseJsonString);
+
+
+
+                return Ok(objDeserialized);
             }
             catch (Exception)
             {

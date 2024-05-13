@@ -7,6 +7,8 @@
 
 
 <div ng-controller="dashboardCtrlr">
+
+    <img src="~/Content/assets/img/Loader.gif" alt="">
     <div class="nav iconbg">
         <ul class="nav-tabs nav-tabs-bordered d-flex navbuttons" id="borderedTabJustified" role="tablist"
             style="border-bottom:none;">
@@ -92,7 +94,6 @@
                             <img src="~/Content/assets/img/Dashboard/ICONS_BG2.png" class="d-block w-100" alt="...">
                             </div> *@
                         </div>
-
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -224,11 +225,14 @@
         </div>
         <div class="card-body">
             <div class="row col-12 ">
-                <div class="col-4 w-45" ng-repeat="x in Gamelist | limitTo:limit">
-                    <button class="form-control" type="button" ng-click="getdata(x)"
+                <div class="col-4 w-45" ng-repeat="x in Gamelist | limitTo:limit | filter: JL">
+
+                    <button class=" form-control" type="button" ng-click="getdata(x)"
                         style="background-color: transparent; border:none;">
-                        <img src="{{x.GameImg}}" style="width: 30%;" ng-model="x"> </img>
+                        <img src="{{x.gameCover}}" style="width: 30%;" ng-model="x">
                     </button>
+
+
 
                 </div>
             </div>
