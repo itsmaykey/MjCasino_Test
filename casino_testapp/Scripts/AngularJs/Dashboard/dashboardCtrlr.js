@@ -1,20 +1,42 @@
 ﻿
 app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', function (s, h, f) {
+
+    s.Gamelist = [];
+    s.JILI_SLOTS = [];
+
     s.getVendors = function () {
         var uri = "../api/GamesApi/GetVendors";
         h.post(uri).success(function (data) {
-            console.log(data);
+           // console.log(data);
         })
     }
 
+    function getID(a) {
+        console.log(a);
+    }
     //s.getVendors();
 
-    s.getVendorGames = function () {
-        h.post("../api/GamesApi/GetVendorGames?code=JL&page=1&size=100").success(function (data) {
-            console.log(data);
+    //s.getVendorGames = function () {
+    //    h.post("../api/GamesApi/GetVendorGames?code=JL&page=1&size=100").success(function (data) {
+    //            s.Gamelist = data       ;   
+    //       console.log(s.Gamelist);
+        
+    //        // if(s.Gamelist.gameType == "SLOTS") {
+    //        //     s.
+    //        // }
+          
+    //    })
+    //}
+    //s.getVendorGames();
+
+    s.gameUrl = function () {
+        h.post('../api/GamesApi/GetVendorGameUrl?code=JL_1&clientIP=175.176.95.11').success(function (data) {
+            s.gameURL = data;
+            console.log(s.gameURL);
         })
     }
-    s.getVendorGames();
+
+    s.gameUrl();
 
     s.p =
     [
@@ -1356,7 +1378,7 @@ app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', function (s, h, 
      Platform : s.gamelist_arr[i][6],
      Currency : s.gamelist_arr[i][7], }); 
     }
-    console.log(s.Gamelist.slice(0,s.limit))
+    //console.log(s.Gamelist.slice(0,s.limit))
 
     s.viewmore = function() {
         s.limit+=10;
