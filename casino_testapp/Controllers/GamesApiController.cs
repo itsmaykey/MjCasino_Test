@@ -36,7 +36,7 @@ namespace casino_testapp.Controllers
 
         [HttpPost]
         [Route("GetVendorGames")]
-        public async Task<IHttpActionResult> GetVendorGames(string code, int size, string gameType)
+        public async Task<IHttpActionResult> GetVendorGames(string code, string categoryCode)
         {
             var games = new GameUtility();
             var httpClient = new HttpClient();
@@ -47,41 +47,58 @@ namespace casino_testapp.Controllers
                     games.getBaseUrl("/api/integrations/allinone/gamelist"),
                     new FormUrlEncodedContent
                     (
-                        games.getKeyVendorGames(code, size, gameType)
+                        games.getKeyVendorGames(code,categoryCode)
                     )
                 );
 
                 var responseJsonString = await response.Content.ReadAsStringAsync();
+
                 var objDeserialized = JsonConvert.DeserializeObject<GamesData>(responseJsonString);
-                
+                    int ibj = objDeserialized.data.data.games.Count;
+                // var sortedGames = objDeserialized.data.data.games.Contains(categoryCode);
                 var vendorGames = new List<Game>();
-                foreach (var item in objDeserialized.data.data.games)
+                for (var i = 0; i < ibj; i++)
                 {
                     var game = new Game();
-                    game.gameCode = item[0];
-                    game.gameName = item[1];
-                    game.gameType = item[2];
-                    game.gameCover = item[3];
-                    game.gameNull = item[4];
-                    game.language = item[5];
-                    game.platform = item[6];
-                    game.currency = item[7];
-
-                    if (game.gameType == gameType)
+                    game.gameCode = objDeserialized.data.data.games[i][0];
+                    game.gameName = objDeserialized.data.data.games[i][1];
+                    game.gameType = objDeserialized.data.data.games[i][2];
+                    game.gameCover = objDeserialized.data.data.games[i][3];
+                    game.gameNull = objDeserialized.data.data.games[i][4];
+                    game.language = objDeserialized.data.data.games[i][5];
+                    game.platform = objDeserialized.data.data.games[i][6];
+                    game.currency = objDeserialized.data.data.games[i][7];
+                    if (game.gameType == categoryCode)
                     {
                         vendorGames.Add(game);
                     }
-                    else
-                    {
-
-                    }
-                    
+                  
+                  
+                 
                 }
+                
+               
+                //  var filteredData = vendorGames.Where(x => x.gameType == categoryCode).ToList();
+                //foreach (var item in objDeserialized.data.data.games)
+                //{
+
+                //    var game = new Game();
+                //    game.gameCode = item[0];
+                //    game.gameName = item[1];
+                //    game.gameType = item[2];
+                //    game.gameCover = item[3];
+                //    game.gameNull = item[4];
+                //    game.language = item[5];
+                //    game.platform = item[6];
+                //    game.currency = item[7];
+                //    vendorGames.Add(game);
+                //}
 
                 return Ok(new
                 {
                     VendorGamesData = objDeserialized,
-                    ConvertedData = vendorGames
+                    ConvertedData = vendorGames,
+
                 });
             }
             catch (Exception)
