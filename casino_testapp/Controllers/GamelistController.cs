@@ -18,7 +18,7 @@ namespace casino_testapp.Controllers
             return View();
         }
 
-        public ActionResult Ball()
+        public ActionResult Sports()
         {
             return View();
         }
@@ -26,15 +26,20 @@ namespace casino_testapp.Controllers
         {
             return View();
         }
-        public ActionResult Card()
+        public ActionResult Poker()
         {
             return View();
         }
-        public ActionResult Crown()
+        public ActionResult Live()
         {
             return View();
         }
-        public ActionResult Arcade()
+        public ActionResult MiniGames()
+        {
+            return View();
+        }
+
+        public ActionResult OpenGame()
         {
             return View();
         }

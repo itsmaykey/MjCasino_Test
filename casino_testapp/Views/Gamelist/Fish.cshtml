@@ -1,65 +1,104 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Fish";
 }
-<div class="nav iconbg">
+
+<div ng-controller="fishCtrlr">
     <div class="nav iconbg">
-        <ul class="nav-tabs nav-tabs-bordered d-flex navbuttons" id="borderedTabJustified" role="tablist"
-            style="border-bottom:none;">
-            <li class="nav-item flex-fill" role="presentation">
-                <a class="nav-link w-45" id="home-tab" role="tab" aria-controls="home"
-                   aria-selected="true" href="~/Home/Index">
-                    <img src="~/Content/assets/img/Dashboard/Home.png" alt="">
+        <div class="nav iconbg">
+            <ul class="nav-tabs nav-tabs-bordered d-flex navbuttons" id="borderedTabJustified" role="tablist"
+                style="border-bottom:none;">
+                <li class="nav-item flex-fill" role="presentation">
+                    <a class="nav-link w-45" id="home-tab" role="tab" aria-controls="home" aria-selected="true"
+                        href="~/Home/Index">
+                        <img src="~/Content/assets/img/Dashboard/Home.png" alt="">
 
-                </a>
-            </li>
-            <li class="nav-item flex-fill" role="presentation">
-                <a class="nav-link w-45" id="Slot-tab" role="tab" aria-controls="home"
-                   aria-selected="true" href="~/Gamelist/Slot">
-                    <img src="~/Content/assets/img/Dashboard/Slotmachine.png" alt="">
-                </a>
-            </li>
-            <li class="nav-item flex-fill" role="presentation">
-                <a class="nav-link w-45" id="Card-tab" role="tab" aria-controls="home"
-                   aria-selected="true" href="~/Gamelist/Card">
-                    <img src="~/Content/assets/img/Dashboard/CARDs.png" alt="">
-                </a>
-            </li>
-            <li class="nav-item flex-fill" role="presentation">
-                <a class="nav-link w-45" id="Crown-tab" role="tab" aria-controls="home"
-                   aria-selected="true" href="~/Gamelist/Crown">
-                    <img src="~/Content/assets/img/Dashboard/Crown.png" alt="">
-                </a>
-            </li>
-            <li class="nav-item flex-fill" role="presentation">
-                <a class="nav-link w-45 active" id="Fish-tab" role="tab" aria-controls="home"
-                   aria-selected="true" href="~/Gamelist/Fish">
-                    <img src="~/Content/assets/img/Dashboard/Fish.png" alt="">
-                </a>
-            </li>
-            <li class="nav-item flex-fill" role="presentation">
-                <a class="nav-link w-45" id="Ball-tab" role="tab" aria-controls="home"
-                   aria-selected="true" href="~/Gamelist/Ball">
-                    <img src="~/Content/assets/img/Dashboard/Ball.png" alt="">
-                </a>
-            </li>
-            <li class="nav-item flex-fill" role="presentation">
-                <a class="nav-link w-45" id="Cock-tab" role="tab" aria-controls="home"
-                   aria-selected="true" href="~/Gamelist/Cockfight">
-                    <img src="~/Content/assets/img/Dashboard/weather-cock.png" alt="">
-                </a>
-            </li>
-            <li class="nav-item flex-fill" role="presentation">
-                <a class="nav-link w-45" id="Arcade-tab" role="tab" aria-controls="home"
-                   aria-selected="true" href="~/Gamelist/Arcade">
-                    <img src="~/Content/assets/img/Dashboard/Arcade.png" alt="">
+                    </a>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                    <a class="nav-link w-45" id="Slot-tab" role="tab" aria-controls="home" aria-selected="true"
+                        href="~/Gamelist/Slot">
+                        <img src="~/Content/assets/img/Dashboard/Slotmachine.png" alt="">
+                    </a>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                    <a class="nav-link w-45" id="Poker-tab" role="tab" aria-controls="home"
+                       aria-selected="true" href="~/Gamelist/Poker">
+                        <img src="~/Content/assets/img/Dashboard/Poker.png" alt="">
+                    </a>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                    <a class="nav-link w-45" id="Live-tab" role="tab" aria-controls="home"
+                       aria-selected="true" href="~/Gamelist/Live">
+                        <img src="~/Content/assets/img/Dashboard/Live.png" alt="">
+                    </a>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                    <a class="nav-link w-45 active" id="Fish-tab" role="tab" aria-controls="home"
+                       aria-selected="true" href="~/Gamelist/Fish">
+                        <img src="~/Content/assets/img/Dashboard/Fish_name.png" alt="">
+                    </a>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                    <a class="nav-link w-45" id="Sports-tab" role="tab" aria-controls="home"
+                       aria-selected="true" href="~/Gamelist/Sports">
+                        <img src="~/Content/assets/img/Dashboard/Sports.png" alt="">
+                    </a>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                    <a class="nav-link w-45" id="Cock-tab" role="tab" aria-controls="home" aria-selected="true"
+                        href="~/Gamelist/Cockfight">
+                        <img src="~/Content/assets/img/Dashboard/e_sabong.png" alt="">
+                    </a>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                    <a class="nav-link w-45" id="MiniGames-tab" role="tab" aria-controls="home" aria-selected="true"
+                        href="~/Gamelist/MiniGames">
+                        <img src="~/Content/assets/img/Dashboard/MiniGames.png" alt="">
 
-                </a>
-            </li>
-        </ul>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-    </div>
-<div class="row">
-    <h2>Fish</h2>
-    </div>
+    <div class="card" style="background: transparent;">
+        <div class="card-body" style="background: transparent;">
+            <!-- Bordered Tabs Justified -->
+            <ul class="nav nav-tabs nav-tabs-bordered d-flex" id="trialni" role="tablist">
+                <li class="nav-item flex-fill" role="presentation">
+                    <a class=" w-5" id="JL" role="tab" aria-controls="home" aria-selected="true">
+                        <img src="~/Content/assets/img/icons/icon_jili.png" style="width: 50px; cursor:pointer"> </a>
+                </li>
 
+                <li class="nav-item flex-fill" role="presentation">
+                    <a class="w-5" id="FC" role="tab" aria-controls="contact" aria-selected="false" tabindex="-1">
+                        <img src="~/Content/assets/img/icons/icon_fachai.png" style="width: 50px; cursor:pointer"></a>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                    <a class="w-5" id="JDB" role="tab" aria-controls="contact" aria-selected="false" tabindex="-1">
+                        <img src="~/Content/assets/img/icons/icon_jdb.png" style="width: 50px; cursor:pointer"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="row col-12 rowalign limitheight" style="overflow-y: auto; justify-content:center;">
+            <div class="col-2 responsiveimg" ng-repeat="x in Gamelist">
+                <div class="card " style="width: fit-content; background:gray">
+                    <button class=" form-control rowbuttonalign" type="button" ng-click="getdata(x)"
+                        style="background-color: transparent; border:none; align-self:flex-start">
+                        <span>
+                            <img src="{{x.gameCover}}" class="img-size" ng-model="x">
+                            <label class="form-control-plaintext bttntext">{{x.gameName}}</label>
+                        </span>
+
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <button type="button" ng-click="viewmore()" style="text-align: center;">View more</button>
+    </div><!-- End Bordered Tabs Justified -->
+
+</div>
+
+@section scripts {
+    <script src="~/Scripts/AngularJs/Gamelist/fishCtrl.js"></script>
+}

@@ -22,15 +22,15 @@ namespace casino_testapp.Models
             };
         }
 
-        public Dictionary<string, string> getKeyVendorGames(string code,int size, string gameType)
+        public Dictionary<string, string> getKeyVendorGames(string code, string categoryCode)
         {
             return new Dictionary<string, string> {
                 { "auth", AUTH },
                 { "id", ID },
                 { "key", KEY },
                 { "code", code },
-                { "size", size.ToString() },
-                { "gametype", gameType.ToString() }
+               
+                { "categoryCode", categoryCode.ToString() }
             };
         }
 

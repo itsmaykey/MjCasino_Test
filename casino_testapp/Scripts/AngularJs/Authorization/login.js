@@ -1,3 +1,5 @@
-﻿app.controller('loginCtrlr', ['$scope', '$http', '$filter', function (s, h, f) {
+﻿
+app = angular.module("loginApp", []);
+app.controller('loginCtrlr', ['$scope', '$http', '$filter', function (s, h, f) {
     console.log("Hello");
 }])

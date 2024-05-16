@@ -31,14 +31,14 @@ namespace casino_testapp.Models
 
     public class Headers
     {
-        public int gameCode { get; set; }
-        public int gameName { get; set; }
-        public int categoryCode { get; set; }
-        public int imageSquare { get; set; }
-        public int imageLandscape { get; set; }
-        public int languageCode { get; set; }
-        public int platformCode { get; set; }
-        public int currencyCode { get; set; }
+        public string gameCode { get; set; }
+        public string gameName { get; set; }
+        public string categoryCode { get; set; }
+        public string imageSquare { get; set; }
+        public string imageLandscape { get; set; }
+        public string languageCode { get; set; }
+        public string platformCode { get; set; }
+        public string currencyCode { get; set; }
     }
 
     public class GameStrings
