@@ -186,6 +186,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthorizationApiController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\GamelistController.cs" />
     <Compile Include="Controllers\GamesApiController.cs" />
@@ -195,6 +196,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AuthUtility.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameUrl.cs" />
     <Compile Include="Models\GameUtility.cs" />
