@@ -54,5 +54,55 @@ namespace casino_testapp.Controllers
                 throw;
             }
         }
+
+        [HttpPost]
+        [Route("Register")]
+        public async Task<IHttpActionResult> Register(string username, string password, string referrer)
+        {
+            var authUtility = new AuthUtility(username, password);
+            var gameUtility = new GameUtility();
+            var httpClient = new HttpClient();
+
+            try
+            {
+                var response = await httpClient.PostAsync
+                    (
+                        gameUtility.getBaseUrl("/login/session"),
+                        new FormUrlEncodedContent
+                        (
+                            authUtility.getAuth()
+                        )
+                    );
+
+                var responseJsonString = await response.Content.ReadAsStringAsync();
+                var objDeserialized = JsonConvert.DeserializeObject<SessionResponse>(responseJsonString);
+
+                var validateResponse = await httpClient.PostAsync
+                    (
+                        gameUtility.getBaseUrl("/register/account2"),
+                        new FormUrlEncodedContent
+                        (
+                            authUtility.registerKey(objDeserialized.session, objDeserialized.key, referrer)
+                        )
+                    );
+
+                var validateResponseString = await validateResponse.Content.ReadAsStringAsync();
+                var valid = JsonConvert.DeserializeObject<ValidateReponse>(validateResponseString);
+                return Ok(valid);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        [HttpPost]
+        [Route("Reffff")]
+        public async Task<IHttpActionResult> reffff()
+        {
+            return Ok("GAGO man diay ka!");
+        }
     }
 }

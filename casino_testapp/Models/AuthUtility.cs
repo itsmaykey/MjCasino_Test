@@ -32,6 +32,18 @@ namespace casino_testapp.Models
                 { "password", this.password }
             };
         }
+
+        public Dictionary<string, string> registerKey(string session, string key, string referrer)
+        {
+            return new Dictionary<string, string> {
+                { "session", session },
+                { "key", key },
+                { "username", this.username },
+                { "password", this.password },
+                { "referrer",  referrer },
+                { "tag", "Player" }
+            };
+        }
     }
 
     public class SessionResponse

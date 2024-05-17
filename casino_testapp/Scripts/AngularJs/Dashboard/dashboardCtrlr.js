@@ -1,5 +1,5 @@
 ﻿
-app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', function (s, h, f) {
+app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', '$window', function (s, h, f, w) {
 
     s.Gamelist = [];
     s.JILI_SLOTS = [];
@@ -1387,5 +1387,13 @@ app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', function (s, h, 
 
     s.getdata = function(x) {
         console.log(x);
+    }
+
+    s.username;
+    s.userData = JSON.parse(w.sessionStorage.getItem("user"));
+    if (s.userData != null) {
+        s.username = s.userData['username'];
+        console.log(s.userData);
+        console.log(s.username);
     }
 }])
