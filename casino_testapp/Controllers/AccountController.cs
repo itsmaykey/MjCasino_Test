@@ -274,8 +274,8 @@ namespace casino_testapp.Controllers
             return View();
         }
 
-        //
-        // POST: /Account/ExternalLogin
+        
+       //  POST: /Account/ExternalLogin
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -320,8 +320,8 @@ namespace casino_testapp.Controllers
             return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
         }
 
-        //
-        // GET: /Account/ExternalLoginCallback
+        
+       //  GET: /Account/ExternalLoginCallback
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
@@ -350,7 +350,7 @@ namespace casino_testapp.Controllers
             }
         }
 
-        //
+        
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
         [AllowAnonymous]
@@ -388,8 +388,8 @@ namespace casino_testapp.Controllers
             return View(model);
         }
 
-        //
-        // POST: /Account/LogOff
+        
+      //   POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
@@ -405,6 +405,8 @@ namespace casino_testapp.Controllers
         {
             return View();
         }
+
+
 
         #region Helpers
         // Used for XSRF protection when adding external logins
