@@ -1,4 +1,4 @@
-﻿<div ng-controller="cardCtrlr">
+﻿<div ng-controller="liveCtrlr">
 
 
 
@@ -62,11 +62,19 @@
         <!-- Bordered Tabs Justified -->
         <ul class=" navbars nav-tabs nav-tabs-bordered d-flex navbuttons scroller " id="trialni" role="tablist"
             style="padding-top:30px;">
-            <li class="nav-item flex-fill" role="presentation">
+            @* <li class="nav-item flex-fill" role="presentation">
                 <a class=" w-5" id="JL" role="tab" aria-controls="home" aria-selected="true">
                     <img src="~/Content/assets/img/icons/icon_jili.png" style="width: 50px; cursor:pointer">
                 </a>
-            </li>
+            </li> *@
+             <li class="nav-item flex-fill" role="presentation">
+                <a class="w-5" id="EVOLIVE" role="tab" aria-controls="contact" aria-selected="false" tabindex="-1">
+                <img src="~/Content/assets/img/icons/icon_evo.png" style="width: 80px; cursor:pointer"></a>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                <a class="w-5" id="WIFY" role="tab" aria-controls="contact" aria-selected="false" tabindex="-1">
+                <img src="~/Content/assets/img/icons/icon_winfinity.png" style="width: 100px; cursor:pointer"></a>
+                </li>
             @* <li class="nav-item flex-fill" role="presentation">
                 <a class="w-5" id="PP" role="tab" aria-controls="contact" aria-selected="false" tabindex="-1">
                 <img src="~/Content/assets/img/icons/icon_pragmatic.png" style="width: 50px; cursor:pointer"></a>
@@ -99,10 +107,7 @@
                 <a class="w-5" id="EVONTT" role="tab" aria-controls="contact" aria-selected="false" tabindex="-1">
                 <img src="~/Content/assets/img/icons/icon_netent.png" style="width: 80px; cursor:pointer"></a>
                 </li>
-                <li class="nav-item flex-fill" role="presentation">
-                <a class="w-5" id="EVOLIVE" role="tab" aria-controls="contact" aria-selected="false" tabindex="-1">
-                <img src="~/Content/assets/img/icons/icon_evo.png" style="width: 80px; cursor:pointer"></a>
-                </li>
+               
                 <li class="nav-item flex-fill" role="presentation">
                 <a class="w-5" id="HB" role="tab" aria-controls="contact" aria-selected="false" tabindex="-1">
                 <img src="~/Content/assets/img/icons/icon_hanabero.png" style="width: 80px; cursor:pointer"></a>
@@ -115,10 +120,7 @@
                 <a class="w-5" id="EVOP" role="tab" aria-controls="contact" aria-selected="false" tabindex="-1">
                 <img src="~/Content/assets/img/icons/icon_evo.png" style="width: 80px; cursor:pointer"></a>
                 </li>
-                <li class="nav-item flex-fill" role="presentation">
-                <a class="w-5" id="WIFY" role="tab" aria-controls="contact" aria-selected="false" tabindex="-1">
-                <img src="~/Content/assets/img/icons/icon_winfinity.png" style="width: 100px; cursor:pointer"></a>
-                </li>
+                
                 <li class="nav-item flex-fill" role="presentation">
                 <a class="w-5" id="EVOBTG" role="tab" aria-controls="contact" aria-selected="false" tabindex="-1">
                 <img src="~/Content/assets/img/icons/icon_evo.png" style="width: 80px; cursor:pointer"></a>
@@ -157,25 +159,35 @@
                 </li> *@
         </ul>
     </div>
-    <div class="row col-12 rowalign limitheight" style="overflow-y: auto; justify-content:center;">
-        <div class="col-1 responsiveimg" ng-repeat="x in Gamelist | limitTo :limit">
-            <div class="card " style="width: fit-content; background:transparent;">
+  <div class="row col-12 rowalign limitheight" style="overflow-y: auto; overflow-x:hidden; justify-content:center;">
+    <div class="col-12" style="text-align:-webkit-right">
+     <div class="searchform" ng-show="showsearch">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword" ng-model="searched">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      
+    </div>
+    </div>
+    
+        <div class="col-1 responsiveimg" ng-repeat="x in Gamelist | limitTo :limit | filter:searched">
+      
+            <div class="card " style="width: fit-content; background:transparent;" >
                 <button class=" form-control rowbuttonalign" type="button" ng-click="getdata(x)"
-                        style="background-color: transparent; border:none; align-self:flex-start">
+                    style="background-color: transparent; border:none; align-self:flex-start">
                     <img src="{{x.gameCover}}" class="img-size" ng-model="x">
                     <label class="form-control-plaintext bttntext">{{x.gameName}}</label>
-
-
                 </button>
-
             </div>
         </div>
     </div>
-    <div class="row" style="display: flex; justify-content: center;">
-        <button type="button" ng-click="viewmore()"
-                style="height: 50px;width: 50px;text-align: center;background: transparent;color: white;border-radius: 50%;background-color: transparent;border: none;font-size: 45px;">
-            ...
-        </button>
-    </div>
 
+    <div class="row" style="display: flex; justify-content: center;">
+
+        <button type="button" ng-click="viewmore()"
+            style="height: 50px;width: 50px;text-align: center;background: transparent;color: white;border-radius: 50%;background-color: transparent;border: none;font-size: 45px;">...</button>
+
+
+    </div>
 </div><!-
+@section scripts {
+    <script src="~/Scripts/AngularJs/Gamelist/liveCtrl.js"></script>
+}
