@@ -53,6 +53,14 @@ C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\casino_testapp\casino_test
 C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\casino_testapp\casino_testapp\obj\Debug\casino_testapp.dll
 C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\casino_testapp\casino_testapp\obj\Debug\casino_testapp.pdb
 C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\casino_testapp\casino_testapp\obj\Debug\casino_testapp.csprojResolveAssemblyReference.cache
+C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\casino_testapp.dll.config
+C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\casino_testapp.dll
+C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\casino_testapp.pdb
+C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.dll
+C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.pdb
+<<<<<<< HEAD
+C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.csprojResolveAssemblyReference.cache
+=======
 E:\MjCasino_Test\casino_testapp\bin\casino_testapp.dll.config
 E:\MjCasino_Test\casino_testapp\bin\casino_testapp.dll
 E:\MjCasino_Test\casino_testapp\bin\casino_testapp.pdb
@@ -122,14 +130,12 @@ E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.OAuth.xml
 E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Google.xml
 E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Twitter.xml
 E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.csproj.AssemblyReference.cache
 E:\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.csproj.CoreCompileInputs.cache
 E:\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.csproj.CopyComplete
 E:\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.dll
 E:\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.pdb
-C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\casino_testapp.dll.config
-C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\casino_testapp.dll
-C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\casino_testapp.pdb
-C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.dll
-C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.pdb
-C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.csprojResolveAssemblyReference.cache
+E:\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.csproj.AssemblyReference.cache
+>>>>>>> cd12bd67d60da6097578ca931acc759b3ba5b4d7
+C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\CaptchaMvc.dll
+C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\CaptchaMvc.pdb
+C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\CaptchaMvc.xml

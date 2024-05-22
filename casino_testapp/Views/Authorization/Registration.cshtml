@@ -107,16 +107,30 @@
                                                     </div>
                                                     <div class="invalid-feedback">Please confirm your password.</div>
                                                 </div>
-
-                                                <div style="height: 16px">
-
-                                                </div>
                                                 <div class="col-12">
                                                     <div class="form-floating">
-                                                        <input type="password" name="password" class="form-control" id="yourReferrer" ng-model="referrer">
+                                                        <input type="text" name="referral" class="form-control" id="yourReferral" ng-model="referrer">
                                                         <label for="referrer">Referral Code</label>
                                                     </div>
                                                 </div>
+
+                                                <div style="height: 16px"></div>
+                                                <div class="alert alert-primary alert-dismissible fade show center" role="alert">
+                                                    <div class="center">
+                                                        <div class="row">
+                                                            <h6>CAPTCHA</h6>
+                                                            <h1>{{equation}}</h1>
+                                                        </div>
+                                                    </div>
+                                                    @*<button type="button" class="btn-close" aria-label="Close"></button>*@
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-floating">
+                                                        <input type="text" name="captcha" class="form-control" id="captcha" ng-model="userCaptcha" required>
+                                                        <label for="referrer">Enter Captcha</label>
+                                                    </div>
+                                                </div>
+                                                <h6 ng-hide="isRightCaptcha" style="color: red">{{captchaMessage}}</h6>
                                                 <div class="col-12" ng-hide="loggingIn">
                                                     <button id="authButton" class="btn btn-lg w-100" type="submit"
                                                             ng-click="register();">
@@ -126,9 +140,8 @@
                                                 <div class="lds-ring" ng-show="loggingIn"><div></div><div></div><div></div><div></div></div>
                                                 <div class="col-12">
                                                     <p class="small mb-0">
-                                                        Don't have account? <a href="/Authorization/Registration">
-                                                            Create an
-                                                            account
+                                                        Already have an account? <a href="/Authorization/Login">
+                                                            Login
                                                         </a>
                                                     </p>
                                                 </div>
