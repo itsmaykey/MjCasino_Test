@@ -72,4 +72,31 @@ namespace casino_testapp.Models
         public string auth { get; set; }
         public string key { get; set; }
     }
+
+    public class UserBalanceResponse
+    {
+        public int errCode { get; set; }
+        public List<UserBalance> history { get; set; }
+    }
+    public class UserBalance
+    {
+        public int balance_count { get; set; }
+        public string balance_network { get; set; }
+        public string balance_id { get; set; }
+        public string balance_referrer { get; set; }
+        public string balance_tag { get; set; }
+        public string balance_username { get; set; }
+        public int balance_value { get; set; }
+        public string balance_hash { get; set; }
+        public string balance_description { get; set; }
+        public string balance_destination { get; set; }
+        public string balance_from { get; set; }
+        public string balance_date { get; set; }
+        public string balance_time { get; set; }
+
+
+    }
+
+
+
 }

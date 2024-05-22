@@ -1,5 +1,10 @@
 ﻿#authBody {
-    background-color: #141414
+    
+    background-image: url('assets/img/Background/BG2.jpg');
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #authButton {

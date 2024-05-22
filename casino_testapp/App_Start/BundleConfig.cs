@@ -31,7 +31,8 @@ namespace casino_testapp
                     "~/Content/assets/vendor/tinymce/tinymce.min.js",
                     "~/Content/assets/vendor/php-email-form/validate.js",
                     "~/Content/assets/js/main.js",
-                    "~/Script/AngularJs/myApp.js"));
+                    "~/Script/AngularJs/myApp.js"
+                    ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                     //"~/Content/bootstrap.css",

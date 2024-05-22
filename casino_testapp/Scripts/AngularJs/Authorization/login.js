@@ -1,10 +1,14 @@
-﻿var app = angular.module('loginApp', []);
+﻿/// <reference path="C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\Views/Shared/_Layout.cshtml" />
+/// <reference path="C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\Views/Shared/_Layout.cshtml" />
+/// <reference path="C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\Views/Shared/_Layout.cshtml" />
+/// <reference path="C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\Views/Shared/_Layout.cshtml" />
+/// <reference path="C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\Views/Shared/_Layout.cshtml" />
+
+var app = angular.module('loginApp', []);
 app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$window', function (s, rs, h, f, w) {
+   
     s.username;
     s.password;
-<<<<<<< HEAD
-    s.uname
-=======
     s.cPassword;
     s.referrer = "";
     s.userData;
@@ -21,25 +25,17 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
         s.checkCurrentUser = !s.checkCurrentUser;
     }
 
->>>>>>> 486f6d55d13480eddd8a6d8c9099052972eb1a77
     s.login = function () {
-       
         console.log(s.username, s.password);
         s.loggingIn = !s.loggingIn;
         h.post("../api/Authorization/Login?username=" + s.username + "&password=" + s.password).success(function (data) {
             s.userData = data;
             console.log(data);
+          
             w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
-<<<<<<< HEAD
-
-  
-         
-            console.log(w.sessionStorage.getItem("user"));
-=======
             console.log(JSON.parse(w.sessionStorage.getItem("user")));
             s.loggingIn = !s.loggingIn;
             w.location.href = '../';
->>>>>>> 486f6d55d13480eddd8a6d8c9099052972eb1a77
         });
     }
 
@@ -74,4 +70,20 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
             console.log(s.loggingIn);
         }
     }
+
+
+    s.historyBalance;
+    s.getUserBalance = function () {
+        h.post('../api/user/GetBalance').success(function (data) {
+            s.gBalance = data.ConvertedData;
+            console.log(s.gBalance);
+
+            //s.showGames= true;
+            //s.showLoader = false;
+            // if(s.Gamelist.gameType == "SLOTS") {
+            //     s.
+            // }
+        })
+    }
+    s.getUserBalance();
 }])

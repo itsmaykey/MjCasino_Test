@@ -1,5 +1,6 @@
-﻿app.controller('slotCtrlr', ['$scope', '$http', '$filter', function (s, h, f) {
-
+﻿app.controller('slotCtrlr', ['$scope', '$http', '$filter', '$window', function (s, h, f, w) {
+    
+ 
 
     s.Gamelist = [];
     s.gameid = "JL";
@@ -8,8 +9,9 @@
     s.page = 1;
     s.userIP = "";
     s.openG ="";
+    s.getUsername = "";
+
    
-    s.showsearch = false;
 
     fetch('https://api.ipify.org?format=json')
     .then(response => response.json())
@@ -51,16 +53,17 @@
 
     });
 
+   s.showLoader = true;
+   s.showGames= false;
     s.getVendorGames = function () {
-        //console.log(s.gameid == '' ? 'JL' : s.gameid);
-        s.gameid == '' ? 'JL' : s.gameid;
-       // console.log(s.size);
-        // h.post('../api/GamesApi/GetVendorGames?size='+40+'&gameType=SLOTS'+'&code='+s.gameid)
-        h.post('../api/GamesApi/GetVendorGames?categoryCode=SLOTS' + '&code=' + s.gameid).success(function (data) {
+      s.gameid == '' ? 'JL' : s.gameid;
+     h.post('../api/GamesApi/GetVendorGames?categoryCode=SLOTS' + '&code=' + s.gameid).success(function (data) {
             s.Gamelist = data.ConvertedData;
             console.log(s.Gamelist);
-            s.showsearch = true;
-
+            s.showLoader = false;
+            s.showGames= true;
+            //s.showGames= true;
+            //s.showLoader = false;
             // if(s.Gamelist.gameType == "SLOTS") {
             //     s.
             // }
@@ -75,22 +78,48 @@
     }
     s.gameURL = "";
     s.getdata = function (a) {
-     
-        h.post('../api/GamesApi/GetVendorGameUrl?clientIP=' +s.userIP + '&code=' + a.gameCode).success(function (data) {
-            s.gameURL = data.data.data.gameUrl;
-            // console.log(s.gameURL.gameUrl);
-            s.opengameUrl = true;
-            s.gamelistUrl = false;
-            window.open(s.gameURL,'_self')
-          //  s.openG = $('#iframe1').append('<iframe  height=500 width=100% src='+s.gameURL+')></iframe>');
-        // s.openGameURL = window.open(s.gameURL, '_self');
-          
-        })
+        console.log(a);
+        if(s.username == "") {
+            Swal.fire({
+                title: "You are not Logged!",
+                icon: "error",
+                showCancelButton: true,
+                confirmButtonText: "Login",
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                window.open("../Authorization/login", '_self');
+    } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
+    }
+});
+        }
+        else {
+            h.post('../api/GamesApi/GetVendorGameUrl?clientIP=' +s.userIP + '&code=' + a.gameCode).success(function (data) {
+                s.gameURL = data.data.data.gameUrl;
+                // console.log(s.gameURL.gameUrl);
+                s.opengameUrl = true;
+                s.gamelistUrl = false;
+                window.open(s.gameURL,'_self')
+              //  s.openG = $('#iframe1').append('<iframe  height=500 width=100% src='+s.gameURL+')></iframe>');
+            // s.openGameURL = window.open(s.gameURL, '_self');
+              
+            })
+        }
 
-       
-       
-        
     }
 
 
+    s.username = "";
+    s.userData = JSON.parse(w.sessionStorage.getItem("user"));
+    if (s.userData != null) {
+        s.username = s.userData['username'];
+        s.getUsername = angular.copy(s.username);
+        console.log(s.userData);
+        console.log(s.username);
+    }
+
+
+
+   
 }])

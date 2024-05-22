@@ -8,8 +8,10 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
+
 namespace casino_testapp.Controllers
 {
+
     [RoutePrefix("api/Authorization")]
     public class AuthorizationApiController : ApiController
     {
@@ -17,6 +19,7 @@ namespace casino_testapp.Controllers
         [Route("Login")]
         public async Task<IHttpActionResult> Login(string username, string password)
         {
+            
             var authUtility = new AuthUtility(username, password);
             var gameUtility = new GameUtility();
             var httpClient = new HttpClient();
@@ -46,6 +49,7 @@ namespace casino_testapp.Controllers
 
                 var validateResponseString = await validateResponse.Content.ReadAsStringAsync();
                 var valid = JsonConvert.DeserializeObject<ValidateReponse>(validateResponseString);
+                
                 return Ok(valid);
             }
             catch (Exception)

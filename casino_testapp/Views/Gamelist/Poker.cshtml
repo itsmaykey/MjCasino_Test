@@ -159,21 +159,26 @@
             </li> *@
         </ul>
     </div>
-   <div class="row col-12 rowalign limitheight" style="overflow-y: auto; overflow-x:hidden; justify-content:center;">
-    <div class="col-12" style="text-align:-webkit-right">
-     <div class="searchform" ng-show="showsearch">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword" ng-model="searched">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      
+    <div class="loaderStyle" ng-show="showLoader">
+        <div class="loader"></div>
     </div>
-    </div>
-    
+
+    <div class="row col-12 rowalign limitheight" style="overflow-y: auto; overflow-x:hidden; justify-content:center;" ng-show="showGames">
+        <div class="col-12" style="text-align:-webkit-right">
+            <div class="searchform">
+                <input type="text" name="query" placeholder="Search" title="Enter search keyword" ng-model="searched">
+                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+
+            </div>
+        </div>
+
         <div class="col-1 responsiveimg" ng-repeat="x in Gamelist | limitTo :limit | filter:searched">
-      
-            <div class="card " style="width: fit-content; background:transparent;" >
+
+
+            <div class="card " style="width: fit-content; background:transparent;">
                 <button class=" form-control rowbuttonalign" type="button" ng-click="getdata(x)"
-                    style="background-color: transparent; border:none; align-self:flex-start">
-                    <img src="{{x.gameCover}}" class="img-size" ng-model="x">
+                        style="background-color: transparent; border:none; align-self:flex-start">
+                    <img src="{{x.gameCover}}" class="img-size" ng-model="x" alt="">
                     <label class="form-control-plaintext bttntext">{{x.gameName}}</label>
                 </button>
             </div>
