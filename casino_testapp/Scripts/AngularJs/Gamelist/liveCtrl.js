@@ -2,7 +2,7 @@
 
 
     s.Gamelist = [];
-    s.gameid = "JL";
+    s.gameid = "EVOLIVE";
     s.ss = "";
     s.limit = 40;
     s.page = 1;
@@ -54,7 +54,7 @@ s.getVendorGames = function () {
     s.gameid == '' ? 'JL' : s.gameid;
     // console.log(s.size);
     // h.post('../api/GamesApi/GetVendorGames?size='+40+'&gameType=SLOTS'+'&code='+s.gameid)
-    h.post('../api/GamesApi/GetVendorGames?categoryCode=POKER' + '&code=' + s.gameid).success(function (data) {
+    h.post('../api/GamesApi/GetVendorGames?categoryCode=LIVE' + '&code=' + s.gameid).success(function (data) {
         s.Gamelist = data.ConvertedData;
         console.log(s.Gamelist);
         // if(s.Gamelist.gameType == "SLOTS") {

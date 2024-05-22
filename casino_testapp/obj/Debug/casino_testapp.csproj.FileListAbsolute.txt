@@ -122,7 +122,6 @@ C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testa
 C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.csprojResolveAssemblyReference.cache
 C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.dll
 C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.pdb
 E:\MjCasino_Test\casino_testapp\bin\casino_testapp.dll.config

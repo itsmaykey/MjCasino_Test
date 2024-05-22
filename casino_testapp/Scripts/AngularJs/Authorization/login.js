@@ -2,6 +2,9 @@
 app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$window', function (s, rs, h, f, w) {
     s.username;
     s.password;
+<<<<<<< HEAD
+    s.uname
+=======
     s.cPassword;
     s.referrer = "";
     s.userData;
@@ -18,7 +21,9 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
         s.checkCurrentUser = !s.checkCurrentUser;
     }
 
+>>>>>>> 486f6d55d13480eddd8a6d8c9099052972eb1a77
     s.login = function () {
+       
         console.log(s.username, s.password);
         if (s.username != null && s.password != null) {
             s.loggingIn = !s.loggingIn;

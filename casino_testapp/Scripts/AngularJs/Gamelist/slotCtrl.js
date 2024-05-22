@@ -8,9 +8,8 @@
     s.page = 1;
     s.userIP = "";
     s.openG ="";
-    s.opengameUrl = false;
-    s.gamelistUrl = true;
-
+   
+    s.showsearch = false;
 
     fetch('https://api.ipify.org?format=json')
     .then(response => response.json())
@@ -60,6 +59,7 @@
         h.post('../api/GamesApi/GetVendorGames?categoryCode=SLOTS' + '&code=' + s.gameid).success(function (data) {
             s.Gamelist = data.ConvertedData;
             console.log(s.Gamelist);
+            s.showsearch = true;
 
             // if(s.Gamelist.gameType == "SLOTS") {
             //     s.
@@ -81,7 +81,8 @@
             // console.log(s.gameURL.gameUrl);
             s.opengameUrl = true;
             s.gamelistUrl = false;
-            s.openG = $('#iframe1').append('<iframe  height=500 width=100% src='+s.gameURL+')></iframe>');
+            window.open(s.gameURL,'_self')
+          //  s.openG = $('#iframe1').append('<iframe  height=500 width=100% src='+s.gameURL+')></iframe>');
         // s.openGameURL = window.open(s.gameURL, '_self');
           
         })
