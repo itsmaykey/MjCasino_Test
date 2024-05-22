@@ -1392,7 +1392,8 @@ app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', '$window', funct
     s.username;
     s.userData = JSON.parse(w.sessionStorage.getItem("user"));
     if (s.userData != null) {
-        s.username = s.userData['username'];
+        console.log("================================================has data");
+        s.username = s.userData.data.username;
         console.log(s.userData);
         console.log(s.username);
     }

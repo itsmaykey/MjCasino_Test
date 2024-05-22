@@ -20,29 +20,35 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
 
     s.login = function () {
         console.log(s.username, s.password);
-        s.loggingIn = !s.loggingIn;
-        h.post("../api/Authorization/Login?username=" + s.username + "&password=" + s.password).success(function (data) {
-            s.userData = data;
-            console.log(data);
-            w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
-            console.log(JSON.parse(w.sessionStorage.getItem("user")));
+        if (s.username != null && s.password != null) {
             s.loggingIn = !s.loggingIn;
-            w.location.href = '../';
-        });
+            h.post("../api/Authorization/Login?username=" + s.username + "&password=" + s.password).then(function (data) {
+                console.log(data);
+                if (data.data.errCode) {
+                    s.loggingIn = !s.loggingIn;
+                    Swal.fire({
+                        title: "ERROR",
+                        text: data.data.message,
+                        icon: "warning"
+                    });
+                } else {
+                    s.userData = data;
+                    console.log(data);
+                    w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
+                    console.log(JSON.parse(w.sessionStorage.getItem("user")));
+                    s.loggingIn = !s.loggingIn;
+                    w.location.href = '../';
+                }
+            }, function (response) {
+                s.loggingIn = !s.loggingIn;
+                Swal.fire({
+                    title: "ERROR" + response.status,
+                    text: response.statusText,
+                    icon: "error"
+                });
+            });
+        }
     }
-
-    //s.register = function () {
-    //    console.log(s.username, s.password);
-    //    s.loggingIn = !s.loggingIn;
-    //    h.post("../api/Authorization/Register?username=" + s.username + "&password=" + s.password + "$referrer=" + s.referrer).success(function (data) {
-    //        s.userData = data;
-    //        console.log(data);
-    //        w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
-    //        console.log(JSON.parse(w.sessionStorage.getItem("user")));
-    //        s.loggingIn = !s.loggingIn;
-    //        w.location.href = '../';
-    //    });
-    //}
 
     s.register = function () {
         console.log(s.username, s.password);
