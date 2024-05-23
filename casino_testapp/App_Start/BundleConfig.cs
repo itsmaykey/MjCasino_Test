@@ -46,6 +46,12 @@ namespace casino_testapp
                     "~/Content/assets/vendor/remixicon/remixicon.css",
                     "~/Content/assets/vendor/simple-datatables/style.css"
                       ));
+
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                "~/Scripts/angular.js",
+                "~/Scripts/angular.min.js",
+                "~/Scripts/angular-route.js"
+            ));
           
         
         }
