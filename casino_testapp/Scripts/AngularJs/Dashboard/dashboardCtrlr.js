@@ -3,7 +3,7 @@ app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', '$window', funct
 
     s.Gamelist = [];
     s.liveGames = [];
-
+    s.limit = 7;
     s.getVendors = function () {
         var uri = "../api/GamesApi/GetVendors";
         h.post(uri).success(function (data) {
@@ -13,11 +13,13 @@ app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', '$window', funct
     function getID(a) {
         console.log(a);
     }
+
+    
     s.getLivegames = function () {
         h.post('../api/GamesApi/GetVendorGames?categoryCode=LIVE' + '&code=EVOLIVE').success(function (data) {
             // console.log(data);
             s.liveGames = data.ConvertedData;
-            console.log(s.liveGames);
+           // console.log(s.liveGames);
             //            s.Gamelist = data       ;   
             //       console.log(s.Gamelist);
 
@@ -1407,7 +1409,7 @@ app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', '$window', funct
     s.userData = JSON.parse(w.sessionStorage.getItem("user"));
     if (s.userData != null) {
         console.log("================================================has data");
-        s.username = s.userData.data.username;
+        s.username = s.userData.username;
         console.log(s.userData);
     }
 }])

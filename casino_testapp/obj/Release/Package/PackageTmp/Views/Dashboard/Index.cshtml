@@ -1,0 +1,322 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<div ng-controller="dashboardCtrlr">
+
+
+    <div class="nav iconbg">
+        <ul class="nav-tabs nav-tabs-bordered d-flex navbuttons" id="borderedTabJustified" role="tablist"
+            style="border-bottom:none;">
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45 active" id="home-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Dashboard/Index">
+                    <img src="~/Content/assets/img/Dashboard/Home_name.png" alt="">
+                </a>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45" id="Slot-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Gamelist/Slot">
+                    <img src="~/Content/assets/img/Dashboard/Slotmachine.png" alt="">
+                </a>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45" id="Poker-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Gamelist/Poker">
+                    <img src="~/Content/assets/img/Dashboard/Poker.png" alt="">
+                </a>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45" id="Live-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Gamelist/Live">
+                    <img src="~/Content/assets/img/Dashboard/Live.png" alt="">
+                </a>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45" id="Fish-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Gamelist/Fish">
+                    <img src="~/Content/assets/img/Dashboard/Fish.png" alt="">
+                </a>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45" id="Sports-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Gamelist/Sports">
+                    <img src="~/Content/assets/img/Dashboard/Sports.png" alt="">
+                </a>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45" id="Cock-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Gamelist/Cockfight">
+                    <img src="~/Content/assets/img/Dashboard/e_sabong.png" alt="">
+                </a>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+                <a class="nav-link w-45" id="MiniGames-tab" role="tab" aria-controls="home" aria-selected="true"
+                    href="~/Gamelist/MiniGames">
+                    <img src="~/Content/assets/img/Dashboard/MiniGames.png" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <span style="display: flex;background:yellow; margin-bottom:5px;">
+                <i class="bi bi-megaphone"></i>
+                <label style="display:flex; width:100%">
+                    <marquee style="text-align: center;">
+                        Thank you for playing PHLBET888. Bet more Win more! &nbsp; &nbsp; &nbsp; &nbsp; Thank you for
+                        playing PHLBET888. Bet more Win more!
+                        &nbsp; &nbsp; &nbsp; &nbsp; Thank you for
+                        playing PHLBET888. Bet more Win more!
+                        &nbsp; &nbsp; &nbsp; &nbsp; Thank you for
+                        playing PHLBET888. Bet more Win more!
+                    </marquee>
+                </label>
+            </span>
+
+        </div>
+        <div class="col-sm-12">
+            <div class="card" style="background-color: transparent;">
+                <div class="card-body">
+                    <!-- Slides with controls -->
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="~/Content/assets/img/thumbnail/Games.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/Content/assets/img/Background/BG3.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            @* <div class="carousel-item">
+                            <img src="~/Content/assets/img/Dashboard/ICONS_BG2.png" class="d-block w-100" alt="...">
+                            </div> *@
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+
+                    </div><!-- End Slides with controls -->
+
+                </div>
+            </div>
+        </div>
+        @*
+        <div class="col-xl-12">
+        <div class="card nobg">
+        <img src="~/Content/assets/img/thumbnail/Games.png" alt="">
+        </div>
+        </div> *@
+    </div>
+    <div class="nobg" style="padding-bottom:20px;">
+        <div class="nav navbars">
+            <!-- Default Tabs -->
+            <ul class=" nav-tabs d-flex navbuttons" id="myTabjustified" role="tablist">
+                <li class="nav-item flex-fill" role="presentation">
+                    <button class="nav-link w-45 active" id="home-tab" data-bs-toggle="tab"
+                        data-bs-target="#home-justified" type="button" role="tab" aria-controls="home"
+                        aria-selected="true">
+                        <img src="~/Content/assets/img/DailyTopWin/DICE.png" alt="">
+                        <label style="color:white">Daily Top Win</label>
+                    </button>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                    <button class="nav-link w-45" id="profile-tab" data-bs-toggle="tab"
+                        data-bs-target="#profile-justified" type="button" role="tab" aria-controls="profile"
+                        aria-selected="false" tabindex="-1">
+                        <img src="~/Content/assets/img/DailyTopWin/JILI.png" alt="">
+                        <label style="color:white">Daily Top Win</label>
+                    </button>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                    <button class="nav-link w-45" id="contact-tab" data-bs-toggle="tab"
+                        data-bs-target="#contact-justified" type="button" role="tab" aria-controls="contact"
+                        aria-selected="false" tabindex="-1">
+                        <img src="~/Content/assets/img/DailyTopWin/FC.png" alt="">
+                        <label style="color:white">Daily Top Win</label>
+                    </button>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                    <button class="nav-link w-45" id="contact-tab" data-bs-toggle="tab"
+                        data-bs-target="#contactni-justified" type="button" role="tab" aria-controls="contact"
+                        aria-selected="false" tabindex="-1">
+                        <img src="~/Content/assets/img/DailyTopWin/ICE.png" alt="">
+                        <label style="color:white">Daily Top Win</label>
+                    </button>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                    <button class="nav-link w-45" id="contact-tab" data-bs-toggle="tab"
+                        data-bs-target="#contactni-justified" type="button" role="tab" aria-controls="contact"
+                        aria-selected="false" tabindex="-1">
+                        <img src="~/Content/assets/img/DailyTopWin/R88.png" alt="">
+                        <label style="color:white">Daily Top Win</label>
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content pt-2" id="myTabjustifiedContent"
+                style="background-color: rgba(249, 180, 45, 0.1);, 0.5; color: white; height:300px; overflow-y:auto;">
+                <div class="tab-pane fade active show" id="home-justified" role="tabpanel" aria-labelledby="home-tab">
+                    <table class="table table-borderless tableStyle">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col" style="text-align:end; padding-right:11%">Amount </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>M********D</td>
+                                <td style="text-align:end; padding-right:10%">200,200.00</td>
+                            </tr>
+                            <tr>
+
+                                <td>M********D</td>
+                                <td style="text-align:end; padding-right:10%">200,200.00</td>
+
+                            </tr>
+                            <tr>
+
+                                <td>M********D</td>
+                                <td style="text-align:end; padding-right:10%">200,200.00</td>
+
+                            </tr>
+                            <tr>
+
+                                <td>M********D</td>
+                                <td style="text-align:end; padding-right:10%">200,200.00</td>
+
+                            </tr>
+                            <tr>
+
+                                <td>M********D</td>
+                                <td style="text-align:end; padding-right:10%">200,200.00</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="profile-justified" role="tabpanel" aria-labelledby="profile-tab">
+                    Nesciunt totam et. Consequuntur magnam aliquid eos nulla dolor iure eos quia. Accusantium distinctio
+                    omnis et atque fugiat. Itaque doloremque aliquid sint quasi quia distinctio similique. Voluptate
+                    nihil recusandae mollitia dolores. Ut laboriosam voluptatum dicta.
+                </div>
+                <div class="tab-pane fade" id="contact-justified" role="tabpanel" aria-labelledby="contact-tab">
+                    111Saepe animi et soluta ad odit soluta sunt. Nihil quos omnis animi debitis cumque. Accusantium
+                    quibusdam perspiciatis qui qui omnis magnam. Officiis accusamus impedit molestias nostrum veniam.
+                    Qui amet ipsum iure. Dignissimos fuga tempore dolor.
+                </div>
+                <div class="tab-pane fade" id="contactni-justified" role="tabpanel" aria-labelledby="contact-tab">
+                    111Saepe animi et soluta ad odit soluta sunt. Nihil quos omnis animi debitis cumque. Accusantium
+                    quibusdam perspiciatis qui qui omnis magnam. Officiis accusamus impedit molestias nostrum veniam.
+                    Qui amet ipsum iure. Dignissimos fuga tempore dolor.
+                </div>
+            </div><!-- End Default Tabs -->
+        </div>
+    </div>
+
+    <div class=" card btn-bg" style="margin-bottom: -25px;">
+        <div class="col-xl-12">
+            <div class="card-body" style="text-align:center;">
+                <button type="button" class="btn btn-bg " data-bs-toggle="modal" data-bs-target="#LocalGames">
+                    <img src="~/Content/assets/img/Assortedgames/LocalGames.png" class="img-resize" alt="">
+                </button>
+                <button type="button" class="btn btn-bg ">
+                    <img src="~/Content/assets/img/Assortedgames/MineGames.png" class="img-resize" alt="">
+                </button>
+                <button type="button" class="btn btn-bg ">
+                    <img src="~/Content/assets/img/Assortedgames/FirstPerson.png" class="img-resize" alt="">
+                </button>
+                <button type="button" class="btn btn-bg ">
+                    <img src="~/Content/assets/img/Assortedgames/GameShow.png" class="img-resize" alt="">
+                </button>
+                <button type="button" class="btn btn-bg ">
+                    <img src="~/Content/assets/img/Assortedgames/BingoGames.png" class="img-resize" alt="">
+                </button>
+                <button type="button" class="btn btn-bg">
+                    <img src="~/Content/assets/img/Assortedgames/CrashGame.png" class="img-resize" alt="">
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card nobg">
+
+        <div class="card-body">
+            <h3 class="center" style="color: wheat;">POPULAR GAMES</h3>
+
+        </div>
+
+    </div>
+
+    <hr class="dashed">
+
+    <div class="card nobg">
+
+        <div class="card-body">
+            <h3 class="center" style="color: wheat;">TABLE GAMES</h3>
+        </div>
+    </div>
+    <div class="card nobg">
+        <div class="card-body">
+            <h3 class="center" style="color: wheat;">LIVE GAMES</h3>
+            <div class="row col-12 rowalign limitheight"
+                style="overflow-y: auto; overflow-x:hidden; justify-content:center;">
+
+                <div class="col-1 responsiveimg" ng-repeat="x in liveGames | limitTo :limit">
+
+                    <div class="card " style="width: fit-content; background:transparent;">
+                        <button class=" form-control rowbuttonalign" type="button" ng-click="getdata(x)"
+                            style="background-color: transparent; border:none; align-self:flex-start">
+                            <img src="{{x.gameCover}}" alt="" class="img-size" ng-model="x">
+                            <label class="form-control-plaintext bttntext">{{x.gameName}}</label>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <hr class="dashed">
+    <div class="modal fade" id="LocalGames" tabindex="-1" data-bs-backdrop="false" style="display: none;"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Local Games</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Non omnis incidunt qui sed occaecati magni asperiores est mollitia. Soluta at et reprehenderit.
+                    Placeat autem numquam et fuga numquam. Tempora in facere consequatur sit dolor ipsum.
+                    Consequatur
+                    nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+@section scripts {
+    <script src="~/Scripts/AngularJs/Dashboard/dashboardCtrlr.js"></script>
+}

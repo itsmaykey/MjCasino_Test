@@ -24,7 +24,8 @@ namespace casino_testapp.Controllers
                 var response = await httpClient.PostAsync(games.getBaseUrl("/api/integrations/allinone/vendor"), new FormUrlEncodedContent(games.getKey()));
                 var responseJsonString = await response.Content.ReadAsStringAsync();
                 var objDeserialized = JsonConvert.DeserializeObject<GameUrlDatum>(responseJsonString);
-
+               
+                
                 return Ok(objDeserialized);
             }
             catch (Exception)

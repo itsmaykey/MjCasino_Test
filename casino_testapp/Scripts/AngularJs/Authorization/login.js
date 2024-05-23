@@ -1,5 +1,12 @@
-﻿var app = angular.module('loginApp', []);
+﻿/// <reference path="C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\Views/Shared/_Layout.cshtml" />
+/// <reference path="C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\Views/Shared/_Layout.cshtml" />
+/// <reference path="C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\Views/Shared/_Layout.cshtml" />
+/// <reference path="C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\Views/Shared/_Layout.cshtml" />
+/// <reference path="C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\Views/Shared/_Layout.cshtml" />
+
+var app = angular.module('loginApp', []);
 app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$window', function (s, rs, h, f, w) {
+   
     s.username;
     s.password;
     s.uname
@@ -22,7 +29,6 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
     }
 
     s.login = function () {
-       
         console.log(s.username, s.password);
         if (s.username != null && s.password != null) {
             s.loggingIn = !s.loggingIn;

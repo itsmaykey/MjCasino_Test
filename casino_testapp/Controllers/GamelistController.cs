@@ -11,6 +11,7 @@ namespace casino_testapp.Controllers
         // GET: Gamelist
         public ActionResult Slot()
         {
+            
             return View();
         }
         public ActionResult Cockfight()
