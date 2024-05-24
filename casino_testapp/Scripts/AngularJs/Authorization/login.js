@@ -106,12 +106,21 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
                 if (s.password == s.cPassword) {
                     s.loggingIn = !s.loggingIn;
                     h.post("../api/Authorization/Register?username=" + s.username + "&password=" + s.password + "&referrer=" + s.referrer).success(function (data) {
-                        s.userData = data;
-                        console.log(data);
-                        w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
-                        console.log(JSON.parse(w.sessionStorage.getItem("user")));
-                        s.loggingIn = !s.loggingIn;
-                        w.location.href = '../';
+                        if (data.data.errCode) {
+                            s.loggingIn = !s.loggingIn;
+                            Swal.fire({
+                                title: "ERROR",
+                                text: data.data.message,
+                                icon: "warning"
+                            });
+                        } else {
+                            s.userData = data;
+                            console.log(data);
+                            w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
+                            console.log(JSON.parse(w.sessionStorage.getItem("user")));
+                            s.loggingIn = !s.loggingIn;
+                            w.location.href = '../';
+                        }
                     });
                 } else {
                     s.isRightCaptcha = false;
