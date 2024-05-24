@@ -2,6 +2,16 @@
     
  
 
+    s.username = "";
+    s.userData = JSON.parse(w.sessionStorage.getItem("user"));
+    if (s.userData != null) {
+        s.username = s.userData.data['username'];
+        s.getAuth = s.userData.data['auth'];
+        s.getKey = s.userData.data['key'];
+        s.getId = s.userData.data['id'];
+    }
+
+
     s.Gamelist = [];
     s.gameid = "JL";
     s.ss = "";
@@ -95,7 +105,7 @@
 });
         }
         else {
-            h.post('../api/GamesApi/GetVendorGameUrl?clientIP=' +s.userIP + '&code=' + a.gameCode).success(function (data) {
+            h.post('../api/GamesApi/GetVendorGameUrl?clientIP=' +s.userIP + '&code=' + a.gameCode +'&auth=' + s.getAuth + '&key=' + s.getKey + '&id=' + s.getId).success(function (data) {
                 s.gameURL = data.data.data.gameUrl;
                 // console.log(s.gameURL.gameUrl);
                 s.opengameUrl = true;
@@ -110,14 +120,7 @@
     }
 
 
-    s.username = "";
-    s.userData = JSON.parse(w.sessionStorage.getItem("user"));
-    if (s.userData != null) {
-        s.username = s.userData['username'];
-        s.getUsername = angular.copy(s.username);
-        console.log(s.userData);
-        console.log(s.username);
-    }
+   
 
 
 

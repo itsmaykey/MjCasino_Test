@@ -34,16 +34,18 @@ namespace casino_testapp.Models
             };
         }
 
-        public Dictionary<string, string> getKeyVendorGameUrl(string code, string clientIP)
+        public Dictionary<string, string> getKeyVendorGameUrl(string code, string clientIP, string auth, string id, string key)
         {
             return new Dictionary<string, string> {
-                { "auth", AUTH },
-                { "id", ID },
-                { "key", KEY },
+                { "auth", auth },
+                { "id", id },
+                { "key", key },
                 { "game_code", code },
                 { "client_ip", clientIP.ToString() }
             };
         }
+
+
 
         public string getBaseUrl(string endpoint)
         {

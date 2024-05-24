@@ -66,16 +66,19 @@
         <!-- End Search Bar -->
         <nav id="header" class="header-nav ms-auto">
             <div id="logged" style="display: none;">
-                <ul class="d-flex align-items-center">
+                <ul class="d-flex align-items-center" style="margin-top:15px;">
                     <!-- End Search Icon-->
                     <li class="nav-item dropdown pe-3">
                         <div class="nav-profile">
-                            <form class="search-form d-flex align-items-center" style="justify-content: flex-end;"
-                                method="POST" action="#">
-                                <input type="text" name="query" placeholder="Php 0.00" title="Enter search keyword"
-                                    style="width:fit-content; background:beige;" disabled>
+
+                            <div id="bal" class="search-form d-flex align-items-center"
+                                style="justify-content: flex-end;">
+                                <input type="text" name="query" placeholder="Php {{balance}}"
+                                    title="Enter search keyword" style="width:fit-content; background:beige;" disabled>
                                 <button type="submit" title="cash"><i class="bi bi-cash-coin"></i></button>
-                            </form>
+                            </div>
+
+
                         </div>
                     </li>
                     <li class="nav-item dropdown pe-3">
@@ -152,7 +155,18 @@
     <!-- ======= Sidebar ======= -->
     <script type="text/javascript">
 
-       
+        var balance_obj = sessionStorage.getItem('bal');
+        var userbalance = JSON.parse(balance_obj);
+        if (userbalance != null) {
+            //console.log(userbalance);
+            const b = {
+                balance: userbalance['balance']
+
+            }
+            console.log(b);
+            w3.displayObject("bal", b);
+        }
+
         var userData_obj = sessionStorage.getItem('user');
         var userData = JSON.parse(userData_obj);
         if (userData != null) {
@@ -163,7 +177,9 @@
             }
             console.log(u);
             w3.displayObject("userName", u);
-            w3.show("logged");
+            //w3.show("logged");
+
+
             var logged = document.getElementById("logged");
             if (logged.style.display === "none") {
                 logged.style.display = "block";
@@ -256,12 +272,8 @@
     </a>
 
 
-   
+
     <script src="~/Scripts/AngularJs/myApp.js"></script>
-  
-
-
-
     <!-- Vendor JS Files -->
     <script src="~/Content/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/Content/assets/vendor/apexcharts/apexcharts.min.js"></script>
