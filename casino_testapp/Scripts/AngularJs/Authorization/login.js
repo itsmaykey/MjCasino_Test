@@ -6,34 +6,44 @@
 
 var app = angular.module('loginApp', []);
 app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$window', function (s, rs, h, f, w) {
-   
+
     s.username;
     s.password;
     s.uname
     s.cPassword;
     s.referrer = "";
     s.userData;
+    s.userBalance;
     s.loggingIn = false;
     s.currentyLogged = false;
     s.checkCurrentUser = true;
     s.userCaptcha;
     s.captchaMessage;
+    s.forangulaycopy;
+
+
     s.userData = JSON.parse(w.sessionStorage.getItem("user"));
     if (s.userData != null) {
         w.location.href = '../';
         console.log(true);
+        s.userBalance = JSON.parse(w.sessionStorage.getItem("bal"));
         s.checkCurrentUser = !s.checkCurrentUser;
     } else {
         console.log(false);
         s.checkCurrentUser = !s.checkCurrentUser;
     }
 
+    s.getKey;
+    s.getAuth;
+    s.getId;
+
+
     s.login = function () {
         console.log(s.username, s.password);
         if (s.username != null && s.password != null) {
             s.loggingIn = !s.loggingIn;
             h.post("../api/Authorization/Login?username=" + s.username + "&password=" + s.password).then(function (data) {
-                console.log(data);
+                //console.log(data);
                 if (data.data.errCode) {
                     s.loggingIn = !s.loggingIn;
                     Swal.fire({
@@ -43,11 +53,20 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
                     });
                 } else {
                     s.userData = data;
-                    console.log(data);
+                    s.forangulaycopy = data.data.data;
+                    console.log(s.userData);
+                    s.getKey = angular.copy(s.forangulaycopy.key);
+                    s.getAuth = angular.copy(s.forangulaycopy.auth);
+                    s.getId = angular.copy(s.forangulaycopy.id);
+
+                    /// console.log(data.data.auth);
                     w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
-                    console.log(JSON.parse(w.sessionStorage.getItem("user")));
+                    // console.log(JSON.parse(w.sessionStorage.getItem("user")));
                     s.loggingIn = !s.loggingIn;
-                    w.location.href = '../';
+                    // w.location.href = '../';
+                    s.getBalance();
+
+
                 }
             }, function (response) {
                 s.loggingIn = !s.loggingIn;
@@ -60,6 +79,24 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
         }
     }
 
+
+    s.getBalance = function () {
+        h.post('../api/user/GetBalance?auth=' + s.getAuth + '&key=' + s.getKey + '&id=' + s.getId).success(function (data) {
+            if (data.errCode) {
+                s.loggingIn = !s.loggingIn;
+            }
+            else {
+                s.userBalance = data;
+                w.sessionStorage.setItem("bal", JSON.stringify(data));
+                console.log(s.userBalance);
+                s.loggingIn = !s.loggingIn;
+                w.location.href = '../';
+            }
+
+
+
+        })
+    }
     s.register = function () {
         console.log(s.username, s.password);
         if (s.username != null && s.password != null && s.cPassword != null && s.userCaptcha != null) {
@@ -93,7 +130,7 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
         }
     }
 
-    s.generateCaptcha = function() {
+    s.generateCaptcha = function () {
         s.numerator = Math.round((Math.random() * 2) * 10);
         s.denominator = Math.round((Math.random() * 2) * 10);
         s.operators = ['+', '-'];
@@ -102,7 +139,7 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
         //if (s.operatorIndex == 4) {
         //    s.operatorIndex = 3;
         //}
-        s.equation = s.numerator + " " + s.operators[s.operatorIndex] +" " + s.denominator;
+        s.equation = s.numerator + " " + s.operators[s.operatorIndex] + " " + s.denominator;
     }
 
     s.generateCaptcha();

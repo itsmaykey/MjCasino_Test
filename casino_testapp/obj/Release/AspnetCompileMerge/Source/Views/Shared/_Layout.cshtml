@@ -47,11 +47,11 @@
     ======================================================== -->
 </head>
 
-<body >
+<body ng-app="MJCasinoapp">
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center" style="background-color: #29303A;">
 
-     
+
         <div class="d-flex align-items-center justify-content-between">
             <a href="~/Dashboard/index" class="logo d-flex align-items-center">
                 <img src="~/Content/assets/img/logo.png" alt="">
@@ -63,15 +63,16 @@
 
         </div>
         <!-- End Search Bar -->
-        <nav id="header" class="header-nav ms-auto" >
+        <nav id="header" class="header-nav ms-auto">
             <div id="logged" style="display: none;">
-                <ul class="d-flex align-items-center"><!-- End Search Icon-->
+                <ul class="d-flex align-items-center">
+                    <!-- End Search Icon-->
                     <li class="nav-item dropdown pe-3">
                         <div class="nav-profile">
                             <form class="search-form d-flex align-items-center" style="justify-content: flex-end;"
-                                method="POST" action="#">
+                                  method="POST" action="#">
                                 <input type="text" name="query" placeholder="Php 0.00" title="Enter search keyword"
-                                    style="width:fit-content; background:beige;" disabled>
+                                       style="width:fit-content; background:beige;" disabled>
                                 <button type="submit" title="cash"><i class="bi bi-cash-coin"></i></button>
                             </form>
                         </div>
@@ -79,17 +80,17 @@
                     <li class="nav-item dropdown pe-3">
                         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                             <img src="~/Content/assets/img/account_avatar.png" alt="Profile" class="rounded-circle">
-    
+
                         </a><!-- End Profile Iamge Icon -->
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                             <li class="dropdown-header">
                                 <h6 id="userName">{{username}}</h6>
-                              
+
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-    
+
                             <li>
                                 <a class="dropdown-item d-flex align-items-center" href="~/Profile/Account">
                                     <i class="bi bi-person"></i>
@@ -99,7 +100,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-    
+
                             <li>
                                 <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                                     <i class="bi bi-gear"></i>
@@ -109,7 +110,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-    
+
                             <li>
                                 <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
                                     <i class="bi bi-question-circle"></i>
@@ -119,28 +120,28 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-    
+
                             <li>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <i class="bi bi-box-arrow-right"></i>
                                     <span>Sign Out</span>
                                 </a>
                             </li>
-    
+
                         </ul><!-- End Profile Dropdown Items -->
                     </li><!-- End Profile Nav -->
-    
+
                 </ul>
             </div>
-                  
-                <div id="notlogged" style="display: none; margin-right: 15px;">
-                    <button type="button" class="btn btn-success" onclick="toLogin()">Login</button>
-                    <button type="button" class="btn btn-success" onclick="toRegister()">Register</button>
-                </div>
-                
-           
-     
-      
+
+            <div id="notlogged" style="display: none; margin-right: 15px;">
+                <button type="button" class="btn btn-success" onclick="toLogin()">Login</button>
+                <button type="button" class="btn btn-success" onclick="toRegister()">Register</button>
+            </div>
+
+
+
+
         </nav>
 
         <!-- End Icons Navigation -->
@@ -148,36 +149,41 @@
     </header><!-- End Header -->
     <!-- ======= Sidebar ======= -->
     <script type="text/javascript">
+
+       
+       // window.open("/Dashboard/Index", '_self');
         var userData_obj = sessionStorage.getItem('user');
         var userData = JSON.parse(userData_obj);
         if (userData != null) {
-       // username = userData.data['username'];
-        console.log(userData);
-            const u  ={
-                username : userData.data['username']
+            // username = userData.data['username'];
+            console.log(userData);
+            const u = {
+                username: userData.data['username']
             }
             console.log(u);
             w3.displayObject("userName", u);
             w3.show("logged");
             var logged = document.getElementById("logged");
-            if(logged.style.display === "none"){
+            if (logged.style.display === "none") {
                 logged.style.display = "block";
             }
-            
-        }else{
+
+        } else {
             var notlogged = document.getElementById("notlogged");
-            if(notlogged.style.display === "none"){
+            if (notlogged.style.display === "none") {
                 notlogged.style.display = "block";
             }
         }
-       function toLogin(){
-        window.open("/Authorization/login", '_self');
-        
-       }
-       function toRegister(){
-        window.open("/Authorization/Registration", '_self');
-       }
-      
+        function toLogin() {
+            window.open("../Authorization/login", '_self');
+
+        }
+        function toRegister() {
+            window.open("../Authorization/Registration", '_self');
+        }
+
+
+
     </script>
     <aside id="sidebar" class="sidebar" style="background-color: #29303A;">
 
@@ -211,7 +217,7 @@
 
     </aside><!-- End Sidebar-->
 
-    <main id="main" class="main layoutbg" ng-app="MJCasinoapp">
+    <main id="main" class="main layoutbg" >
         @*<section class="section">*@
         <div class="content-wrapper">
             @RenderBody()
@@ -222,9 +228,7 @@
     <div class="copyright" style="background:black;">
         &copy; Copyright <strong><span>Mj Casino, 2024</span></strong>. All Rights Reserved
     </div>
-    <footer id="footer" class="footer footerbg">
-
-    </footer><!-- End Footer -->
+    <footer id="footer" class="footer footerbg"></footer><!-- End Footer -->
 
     <div class="modal fade" id="verticalycentered" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
@@ -252,9 +256,9 @@
 
 
     <script src="~/Scripts/angular.min.js"></script>
-   
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/AngularJs/myApp.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+   
 
 
     <!-- Vendor JS Files -->
@@ -270,11 +274,8 @@
     <!-- Template Main JS File -->
     <script src="~/Content/assets/js/main.js"></script>
 
-    
-@section scripts {
-    <script src="~/Scripts/AngularJs/Dashboard/dashboardCtrlr.js"></script>
-}
-    
+
+
     @RenderSection("scripts", required: false)
 
 

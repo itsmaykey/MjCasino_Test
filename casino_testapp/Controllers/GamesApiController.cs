@@ -113,7 +113,7 @@ namespace casino_testapp.Controllers
 
         [HttpPost]
         [Route("GetVendorGameUrl")]
-        public async Task<IHttpActionResult> GetVendorGameUrl(string code, string clientIP)
+        public async Task<IHttpActionResult> GetVendorGameUrl(string code, string clientIP, string auth, string key, string id)
         {
             var games = new GameUtility();
             var httpClient = new HttpClient();
@@ -124,7 +124,7 @@ namespace casino_testapp.Controllers
                     games.getBaseUrl("/api/integrations/allinone/game/url"),
                     new FormUrlEncodedContent
                     (
-                        games.getKeyVendorGameUrl(code, clientIP)
+                        games.getKeyVendorGameUrl(code, clientIP, auth, id, key)
                     )
                 );
 

@@ -15,16 +15,22 @@ namespace casino_testapp.Controllers
     {
         // GET: ProfileApi
         [HttpPost]
-        [Route("GetBalance")]
-        public async Task<IHttpActionResult> GetBalance()
+        [Route("GetTransactionHistory")]
+        public async Task<IHttpActionResult> GetTransactionHistory(string auth, string id, string key)
         {
-            var getData = new GameUtility();
+            var getbase = new GameUtility();
+            var getData = new UserUtility(auth, id, key);
             var httpClient = new HttpClient();
             try
             {
-                var response = await httpClient.PostAsync(getData.getBaseUrl("/transaction/get/history/all"), new FormUrlEncodedContent(getData.getKey()));
+                var response = await httpClient.PostAsync
+                    (
+                    getbase.getBaseUrl("/transaction/get/history/all"),
+                    new FormUrlEncodedContent(
+                        getData.getUserKey()
+                        ));
                 var responseJsonString = await response.Content.ReadAsStringAsync();
-                var objDeserialized = JsonConvert.DeserializeObject<UserBalanceResponse>(responseJsonString);
+                var objDeserialized = JsonConvert.DeserializeObject<UserTransactionResponse>(responseJsonString);
 
                 
                 return Ok(objDeserialized);
@@ -35,6 +41,36 @@ namespace casino_testapp.Controllers
                 throw;
             }
         }
-    
+
+
+        [HttpPost]
+        [Route("GetBalance")]
+        public async Task<IHttpActionResult> GetBalance(string auth, string id, string key)
+        {
+            var getbase = new GameUtility();
+            var getData = new UserUtility(auth, id, key);
+            var httpClient = new HttpClient();
+            try
+            {
+                var response = await httpClient.PostAsync
+                    (
+                    getbase.getBaseUrl("/transaction/get/balance"),
+                    new FormUrlEncodedContent(
+                     getData.getUserKey()
+                        )
+                        );
+               
+                var responseJsonString = await response.Content.ReadAsStringAsync();
+                var objDeserialized = JsonConvert.DeserializeObject<userBalanceResponse>(responseJsonString);
+
+
+                return Ok(objDeserialized);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
