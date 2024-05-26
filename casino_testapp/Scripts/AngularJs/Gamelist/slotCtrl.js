@@ -3,6 +3,9 @@
  
 
     s.username = "";
+    s.getAuth ="";
+    s.getId = "";
+    s.getKey = "";
     s.userData = JSON.parse(w.sessionStorage.getItem("user"));
     if (s.userData != null) {
         s.username = s.userData.data['username'];
@@ -26,7 +29,7 @@
     fetch('https://api.ipify.org?format=json')
     .then(response => response.json())
     .then(data => {
-        console.log('Your Public IP Address:', data.ip);
+      //  console.log('Your Public IP Address:', data.ip);
         s.userIP = angular.copy(data.ip);
     })
     .catch(error => {
@@ -69,7 +72,7 @@
       s.gameid == '' ? 'JL' : s.gameid;
      h.post('../api/GamesApi/GetVendorGames?categoryCode=SLOTS' + '&code=' + s.gameid).success(function (data) {
             s.Gamelist = data.ConvertedData;
-            console.log(s.Gamelist);
+          //  console.log(s.Gamelist);
             s.showLoader = false;
             s.showGames= true;
             //s.showGames= true;
@@ -88,7 +91,7 @@
     }
     s.gameURL = "";
     s.getdata = function (a) {
-        console.log(a);
+      //  console.log(a);
         if(s.username == "") {
             Swal.fire({
                 title: "You are not Logged!",

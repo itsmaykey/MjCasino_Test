@@ -12,10 +12,10 @@ app.controller('profileCtrlr', ['$scope', '$http', '$filter', '$window', functio
         s.getKey = s.userData.data['key'];
         s.getId = s.userData.data['id'];
 
-        console.log(s.getAuth)
+      //  console.log(s.getAuth)
       
-        console.log(s.userData);
-        console.log(s.username);
+      //  console.log(s.userData);
+      //  console.log(s.username);
     }
 
 
@@ -25,7 +25,7 @@ app.controller('profileCtrlr', ['$scope', '$http', '$filter', '$window', functio
     s.getTransactionHistory = function () {
         h.post('../api/user/GetTransactionHistory?auth=' + s.getAuth + '&key=' + s.getKey + '&id=' + s.getId).success(function (data) {
             s.TransactionHistory = data.history;
-            console.log(s.TransactionHistory);
+           // console.log(s.TransactionHistory);
 
             //s.showGames= true;
             //s.showLoader = false;

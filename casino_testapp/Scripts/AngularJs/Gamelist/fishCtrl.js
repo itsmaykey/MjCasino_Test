@@ -1,6 +1,19 @@
 app.controller('fishCtrlr', ['$scope', '$http', '$filter', '$window', function (s, h, f,w) {
 
 
+
+    s.username = "";
+    s.getAuth ="";
+    s.getId = "";
+    s.getKey = "";
+    s.userData = JSON.parse(w.sessionStorage.getItem("user"));
+    if (s.userData != null) {
+        s.username = s.userData.data['username'];
+        s.getAuth = s.userData.data['auth'];
+        s.getKey = s.userData.data['key'];
+        s.getId = s.userData.data['id'];
+    }
+
     s.Gamelist = [];
     s.gameid = "JL";
     s.ss = "";
@@ -12,7 +25,7 @@ app.controller('fishCtrlr', ['$scope', '$http', '$filter', '$window', function (
     fetch('https://api.ipify.org?format=json')
     .then(response => response.json())
     .then(data => {
-        console.log('Your Public IP Address:', data.ip);
+    //    console.log('Your Public IP Address:', data.ip);
         s.userIP = angular.copy(data.ip);
     })
     .catch(error => {
@@ -97,29 +110,20 @@ app.controller('fishCtrlr', ['$scope', '$http', '$filter', '$window', function (
             });
             }
             else {
-                h.post('../api/GamesApi/GetVendorGameUrl?clientIP=' +s.userIP + '&code=' + a.gameCode).success(function (data) {
+                h.post('../api/GamesApi/GetVendorGameUrl?clientIP=' +s.userIP + '&code=' + a.gameCode +'&auth=' + s.getAuth + '&key=' + s.getKey + '&id=' + s.getId).success(function (data) {
                     s.gameURL = data.data.data.gameUrl;
                     // console.log(s.gameURL.gameUrl);
                     s.opengameUrl = true;
                     s.gamelistUrl = false;
                     window.open(s.gameURL,'_self')
-                    //  s.openG = $('#iframe1').append('<iframe  height=500 width=100% src='+s.gameURL+')></iframe>');
-                    // s.openGameURL = window.open(s.gameURL, '_self');
-              
+                  //  s.openG = $('#iframe1').append('<iframe  height=500 width=100% src='+s.gameURL+')></iframe>');
+                // s.openGameURL = window.open(s.gameURL, '_self');
+                  
                 })
             }
 
             }
 
-
-            s.username = "";
-            s.userData = JSON.parse(w.sessionStorage.getItem("user"));
-            if (s.userData != null) {
-                s.username = s.userData['username'];
-                s.getUsername = angular.copy(s.username);
-                console.log(s.userData);
-                console.log(s.username);
-            }
 
 
 }])
