@@ -1182,8 +1182,6 @@
     <Content Include="Content\assets\vendor\tinymce\package.json" />
     <Content Include="Content\assets\vendor\tinymce\README.md" />
     <Content Include="Content\toastr.min.css" />
-    <None Include="Properties\PublishProfiles\Autofill.pubxml" />
-    <None Include="Properties\PublishProfiles\Mjcasino.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1250,6 +1248,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Views\UserUtility\" />
   </ItemGroup>
   <ItemGroup>

@@ -48,43 +48,41 @@ app.controller('fishCtrlr', ['$scope', '$http', '$filter', '$window', function (
 
             // Display the ID of the clicked item (optional)
             // console.log('Clicked item ID:', this.id);
-
-          
            
-            var pagereset = 1;
-            var sizereset = 40;
-            var gameT = 'SLOTS';
+            if(s.limit == 40) {
+                s.page -= 1;
+            }
+            else {
+                s.limit = s.limit/s.page
+            }
             s.gameid = angular.copy(this.id);
-            s.getVendorGames( { 
-                page : pagereset.toString(),
-                size : sizereset.toString(),
-                code : s.gameid.toString(),
-                gameType :gameT.toString()});
+            s.showLoader = true;
+            s.showGames= false;
+            s.getVendorGames();
             //  console.log(s.gameid);
         });
 
     });
 
+          
+            
             s.showLoader = true;
             s.showGames= false;
-            s.getVendorGames = function () {
-    
-                s.gameid == '' ? 'JL' : s.gameid;
-     
-      
-                h.post('../api/GamesApi/GetVendorGames?categoryCode=FISH' + '&code=' + s.gameid).success(function (data) {
-                    s.Gamelist = data.ConvertedData;
-                    console.log(s.Gamelist);
-                    s.showLoader = false;
-                    s.showGames= true;
-                    //s.showGames= true;
-                    //s.showLoader = false;
-                    // if(s.Gamelist.gameType == "SLOTS") {
-                    //     s.
-                    // }
-                })
-            }
-            s.getVendorGames();
+             s.getVendorGames = function () {
+               s.gameid == '' ? 'JL' : s.gameid;
+              h.post('../api/GamesApi/GetVendorGames?categoryCode=FISHING' + '&code=' + s.gameid).success(function (data) {
+                     s.Gamelist = data.ConvertedData;
+                   //  console.log(s.Gamelist);
+                     s.showLoader = false;
+                     s.showGames= true;
+                     //s.showGames= true;
+                     //s.showLoader = false;
+                     // if(s.Gamelist.gameType == "SLOTS") {
+                     //     s.
+                     // }
+                 })
+             }
+             s.getVendorGames();
             s.viewmore = function () {
                 s.limit += 40;
                 s.page += 1;
