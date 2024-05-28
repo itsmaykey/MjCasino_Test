@@ -6,12 +6,14 @@ app.controller('profileCtrlr', ['$scope', '$http', '$filter', '$window', functio
     s.getId;
     s.userData = JSON.parse(w.sessionStorage.getItem("user"));
     if (s.userData != null) {
-        s.username = s.userData.data['username'];
-
-        s.getAuth = s.userData.data['auth'];
-        s.getKey = s.userData.data['key'];
-        s.getId = s.userData.data['id'];
-
+        s.username = s.userData.UserDetails.data.username;
+        s.getAuth = s.userData.UserDetails.data.auth;
+        s.getKey = s.userData.UserDetails.data.key;
+        s.getId = s.userData.UserDetails.data.id;
+        console.log(s.username);
+        console.log(s.getAuth);
+        console.log(s.getKey);
+        console.log(s.getId);
       //  console.log(s.getAuth)
       
       //  console.log(s.userData);

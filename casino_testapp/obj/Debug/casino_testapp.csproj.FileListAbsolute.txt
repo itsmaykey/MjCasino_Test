@@ -129,7 +129,6 @@ C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testa
 C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 <<<<<<< HEAD
-C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.csprojResolveAssemblyReference.cache
 E:\MjCasino_Test\casino_testapp\bin\casino_testapp.dll.config
 E:\MjCasino_Test\casino_testapp\bin\casino_testapp.dll
 E:\MjCasino_Test\casino_testapp\bin\casino_testapp.pdb
@@ -175,3 +174,37 @@ E:\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.dll
 E:\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.pdb
 =======
 >>>>>>> 208bf4e7f3dab9663c6f22fe529eb7fbc7639699
+E:\MjCasino_Test\casino_testapp\bin\Antlr3.Runtime.dll
+E:\MjCasino_Test\casino_testapp\bin\EntityFramework.dll
+E:\MjCasino_Test\casino_testapp\bin\EntityFramework.SqlServer.dll
+E:\MjCasino_Test\casino_testapp\bin\Microsoft.AspNet.Identity.Core.dll
+E:\MjCasino_Test\casino_testapp\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\MjCasino_Test\casino_testapp\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.dll
+E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Cookies.dll
+E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.dll
+E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Facebook.dll
+E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Google.dll
+E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.OAuth.dll
+E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Twitter.dll
+E:\MjCasino_Test\casino_testapp\bin\Microsoft.Web.Infrastructure.dll
+E:\MjCasino_Test\casino_testapp\bin\Newtonsoft.Json.Bson.dll
+E:\MjCasino_Test\casino_testapp\bin\Newtonsoft.Json.dll
+E:\MjCasino_Test\casino_testapp\bin\Owin.dll
+E:\MjCasino_Test\casino_testapp\bin\System.Buffers.dll
+E:\MjCasino_Test\casino_testapp\bin\System.Memory.dll
+E:\MjCasino_Test\casino_testapp\bin\System.Net.Http.Formatting.dll
+E:\MjCasino_Test\casino_testapp\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\MjCasino_Test\casino_testapp\bin\System.Threading.Tasks.Extensions.dll
+E:\MjCasino_Test\casino_testapp\bin\System.Web.Helpers.dll
+E:\MjCasino_Test\casino_testapp\bin\System.Web.Http.dll
+E:\MjCasino_Test\casino_testapp\bin\System.Web.Http.WebHost.dll
+E:\MjCasino_Test\casino_testapp\bin\System.Web.Mvc.dll
+E:\MjCasino_Test\casino_testapp\bin\System.Web.Optimization.dll
+E:\MjCasino_Test\casino_testapp\bin\System.Web.Razor.dll
+E:\MjCasino_Test\casino_testapp\bin\System.Web.WebPages.Deployment.dll
+E:\MjCasino_Test\casino_testapp\bin\System.Web.WebPages.dll
+E:\MjCasino_Test\casino_testapp\bin\System.Web.WebPages.Razor.dll
+E:\MjCasino_Test\casino_testapp\bin\WebGrease.dll

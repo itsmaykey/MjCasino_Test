@@ -26,9 +26,7 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
 
 
     s.userData = JSON.parse(w.sessionStorage.getItem("user"));
-    s.userBalance = JSON.parse(w.sessionStorage.getItem("bal"));
-    s.userDownlines = JSON.parse(w.sessionStorage.getItem("downlines"));
-    if (s.userData != null && s.userBalance != null && s.userDownlines != null) {
+    if (s.userData != null) {
         console.log(true);
         w.location.href = '../';
         s.checkCurrentUser = !s.checkCurrentUser;
@@ -65,20 +63,23 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
                         icon: "warning"
                     });
                 } else {
-                    s.userData = data;
-                    s.forangulaycopy = data.data.data;
-                    console.log(s.userData);
-                    s.getKey = angular.copy(s.forangulaycopy.key);
-                    s.getAuth = angular.copy(s.forangulaycopy.auth);
-                    s.getId = angular.copy(s.forangulaycopy.id);
-
-                    console.log(data.data);
+                    //s.userData = data;
+                    //s.forangulaycopy = data.data.data;
+                    console.log(data);
                     w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
-                    // console.log(JSON.parse(w.sessionStorage.getItem("user")));
+                    console.log(JSON.parse(w.sessionStorage.getItem("user")));
+                    
+                    //s.getKey = angular.copy(s.forangulaycopy.key);
+                    //s.getAuth = angular.copy(s.forangulaycopy.auth);
+                    //s.getId = angular.copy(s.forangulaycopy.id);
 
+                    //console.log(data.data);
+                    //w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
+                    //// console.log(JSON.parse(w.sessionStorage.getItem("user")));
+
+                    //s.getBalance();
+                    //s.getDownlines();
                     s.loggingIn = !s.loggingIn;
-                    s.getBalance();
-                    s.getDownlines();
 
 
                     w.location.href = '../';
@@ -98,10 +99,11 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
     s.getBalance = function () {
         h.post('../api/user/GetBalance?auth=' + s.getAuth + '&key=' + s.getKey + '&id=' + s.getId).success(function (data) {
             s.userBalance = data.balance;
-            w.sessionStorage.setItem("bal", JSON.stringify(data["data"]));
-            w.location.href = '../';
+            w.sessionStorage.setItem("bal", JSON.stringify(data));
+            //w.location.href = '../';
             //    w.sessionStorage.setItem("bal", JSON.stringify(data));
-            console.log(s.userBalance);
+            //console.log(w.sessionStorage.getItem("bal"));
+            //console.log("====================userbalance==========================");
         })
 
 
@@ -110,12 +112,12 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
     s.getDownlines = function () {
         h.post('../api/user/GetDownlines?auth=' + s.getAuth + '&key=' + s.getKey + '&id=' + s.getId).success(function (data) {
             s.userDownlines = data;
-            w.sessionStorage.setItem("downlines", JSON.stringify(data["data"]));
-
-            w.location.href = '../';
+            w.sessionStorage.setItem("downlines", JSON.stringify(data["ConvertedData"]));
             // console.log(s.userDownlines.balance_id);
             //  w.sessionStorage.setItem("downlines", JSON.stringify(data));
-            console.log(s.userDownlines);
+            //console.log(s.userDownlines);
+            //console.log(JSON.parse(w.sessionStorage.getItem("downlines")));
+            //console.log("==============================================");
         })
 
     }

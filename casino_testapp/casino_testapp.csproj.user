@@ -17,12 +17,12 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <UseGlobalApplicationHostFile />
+    <!-- <UseGlobalApplicationHostFile />
 <<<<<<< HEAD
     <NameOfLastUsedPublishProfile>E:\MjCasino_Test\casino_testapp\Properties\PublishProfiles\casinotestapp20240527001913 - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
-=======
+======= -->
     <NameOfLastUsedPublishProfile>Autofill</NameOfLastUsedPublishProfile>
->>>>>>> 208bf4e7f3dab9663c6f22fe529eb7fbc7639699
+<!-- >>>>>>> 208bf4e7f3dab9663c6f22fe529eb7fbc7639699 -->
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
