@@ -48,8 +48,8 @@ namespace casino_testapp
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                "~/Scripts/angular.js",
                 "~/Scripts/angular.min.js",
+                "~/Scripts/angular-1.10.2.min.js",
                 "~/Scripts/angular-route.js"
             ));
           

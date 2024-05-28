@@ -55,6 +55,8 @@ app.controller('cardCtrlr', ['$scope', '$http', '$filter', '$window', function (
             }
 
             s.gameid = angular.copy(this.id);
+            s.showLoader = true;
+            s.showGames= false;
             s.getVendorGames();
             //  console.log(s.gameid);
         });

@@ -59,7 +59,62 @@
             </li>
         </ul>
     </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <span style="display: flex;background:yellow; margin-bottom:5px;">
+                <i class="bi bi-megaphone"></i>
+                <label style="display:flex; width:100%">
+                    <marquee style="text-align: center;">
+                        Thank you for playing PHLBET888. Bet more Win more! &nbsp; &nbsp; &nbsp; &nbsp; Thank you for
+                        playing PHLBET888. Bet more Win more!
+                        &nbsp; &nbsp; &nbsp; &nbsp; Thank you for
+                        playing PHLBET888. Bet more Win more!
+                        &nbsp; &nbsp; &nbsp; &nbsp; Thank you for
+                        playing PHLBET888. Bet more Win more!
+                    </marquee>
+                </label>
+            </span>
 
+        </div>
+        <div class="col-sm-12">
+            <div class="card" style="background-color: transparent;">
+                <div class="card-body">
+                    <!-- Slides with controls -->
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="~/Content/assets/img/thumbnail/Games.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/Content/assets/img/Background/BG3.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            @* <div class="carousel-item">
+                            <img src="~/Content/assets/img/Dashboard/ICONS_BG2.png" class="d-block w-100" alt="...">
+                            </div> *@
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+
+                    </div><!-- End Slides with controls -->
+
+                </div>
+            </div>
+        </div>
+        @*
+        <div class="col-xl-12">
+        <div class="card nobg">
+        <img src="~/Content/assets/img/thumbnail/Games.png" alt="">
+        </div>
+        </div> *@
+    </div>
     <div class="nav scroller" style="background: transparent;">
         <!-- Bordered Tabs Justified -->
         <ul class=" navbars nav-tabs nav-tabs-bordered d-flex navbuttons scroller " id="trialni" role="tablist"
@@ -147,9 +202,10 @@
         <div class="loader"></div>
     </div>
 
-    <div class="row col-12 rowalign limitheight" style="overflow-y: auto; overflow-x:hidden; justify-content:center;" ng-show="showGames">
+    <div class="row col-12 rowalign limitheight" style="overflow-y: auto; overflow-x:hidden; justify-content:center;"
+        ng-show="showGames">
         <div class="col-12" style="text-align:-webkit-right">
-            <div class="searchform" >
+            <div class="searchform">
                 <input type="text" name="query" placeholder="Search" title="Enter search keyword" ng-model="searched">
                 <button type="submit" title="Search"><i class="bi bi-search"></i></button>
 
@@ -161,7 +217,7 @@
 
             <div class="card " style="width: fit-content; background:transparent;">
                 <button class=" form-control rowbuttonalign" type="button" ng-click="getdata(x)"
-                        style="background-color: transparent; border:none; align-self:flex-start">
+                    style="background-color: transparent; border:none; align-self:flex-start">
                     <img src="{{x.gameCover}}" class="img-size" ng-model="x" alt="">
                     <label class="form-control-plaintext bttntext">{{x.gameName}}</label>
                 </button>
