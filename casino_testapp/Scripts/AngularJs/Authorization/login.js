@@ -26,7 +26,7 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
     s.userDownlines = JSON.parse(w.sessionStorage.getItem("downlines"));
     if (s.userData != null && s.userBalance != null && s.userDownlines != null) {
         console.log(true);
-        w.location.href = '../';
+       w.location.href = '../';
         s.checkCurrentUser = !s.checkCurrentUser;
     } else {
         console.log(false);
@@ -61,15 +61,18 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
 
                     /// console.log(data.data.auth);
                     w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
-                    // console.log(JSON.parse(w.sessionStorage.getItem("user")));
-
-                    s.loggingIn = !s.loggingIn;
                     s.getBalance();
                     s.getDownlines();
+                    // console.log(JSON.parse(w.sessionStorage.getItem("user")));
+                //balance
+              
+                //downlines
+              
 
-
-                    w.location.href = '../';
-                }
+                s.loggingIn = !s.loggingIn;
+                w.location.href = '../';
+            }
+            
             }, function (response) {
                 s.loggingIn = !s.loggingIn;
                 Swal.fire({
@@ -80,29 +83,48 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
             });
         }
     }
-
-
     s.getBalance = function () {
         h.post('../api/user/GetBalance?auth=' + s.getAuth + '&key=' + s.getKey + '&id=' + s.getId).success(function (data) {
-            s.userBalance = data.balance;
-            w.sessionStorage.setItem("bal", JSON.stringify(data["data"]));
-            w.location.href = '../';
-            //    w.sessionStorage.setItem("bal", JSON.stringify(data));
-            console.log(s.userBalance);
+            if (data.errCode) {
+                s.loggingIn = !s.loggingIn;
+                Swal.fire({
+                    title: "ERROR",
+                    text: data.data.message,
+                    icon: "warning"
+                });
+            }
+            else {
+                s.userBalance = data;
+                w.sessionStorage.setItem("bal", JSON.stringify(data));
+                console.log(JSON.parse(w.sessionStorage.getItem("bal")))
+                s.loggingIn = !s.loggingIn;
+                w.location.href = '../';
+                //    w.sessionStorage.setItem("bal", JSON.stringify(data));
+                console.log(s.userBalance);
+            }
         })
-
-
     }
 
     s.getDownlines = function () {
         h.post('../api/user/GetDownlines?auth=' + s.getAuth + '&key=' + s.getKey + '&id=' + s.getId).success(function (data) {
-            s.userDownlines = data;
-            w.sessionStorage.setItem("downlines", JSON.stringify(data["data"]));
-
-            w.location.href = '../';
-            // console.log(s.userDownlines.balance_id);
-            //  w.sessionStorage.setItem("downlines", JSON.stringify(data));
-            console.log(s.userDownlines);
+            if (data.errCode) {
+                s.loggingIn = !s.loggingIn;
+                Swal.fire({
+                    title: "ERROR",
+                    text: data.data.message,
+                    icon: "warning"
+                });
+            }
+            else {
+                s.userDownlines = data;
+                w.sessionStorage.setItem("downlines", JSON.stringify(data));
+                console.log(JSON.parse(w.sessionStorage.getItem("downlines")))
+                s.loggingIn = !s.loggingIn;
+                w.location.href = '../';
+                // console.log(s.userDownlines.balance_id);
+                //  w.sessionStorage.setItem("downlines", JSON.stringify(data));
+                console.log(s.userDownlines);
+            }
         })
 
     }
