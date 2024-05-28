@@ -14,19 +14,19 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
     s.referrer = "";
     s.userData;
     s.userBalance;
+    s.userDownlines;
     s.loggingIn = false;
     s.currentyLogged = false;
     s.checkCurrentUser = true;
     s.userCaptcha;
     s.captchaMessage;
     s.forangulaycopy;
-
-
     s.userData = JSON.parse(w.sessionStorage.getItem("user"));
-    if (s.userData != null) {
-        w.location.href = '../';
+    s.userBalance = JSON.parse(w.sessionStorage.getItem("bal"));
+    s.userDownlines = JSON.parse(w.sessionStorage.getItem("downlines"));
+    if (s.userData != null && s.userBalance != null && s.userDownlines != null) {
         console.log(true);
-        s.userBalance = JSON.parse(w.sessionStorage.getItem("bal"));
+        w.location.href = '../';
         s.checkCurrentUser = !s.checkCurrentUser;
     } else {
         console.log(false);
@@ -62,11 +62,13 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
                     /// console.log(data.data.auth);
                     w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
                     // console.log(JSON.parse(w.sessionStorage.getItem("user")));
+
                     s.loggingIn = !s.loggingIn;
-                    // w.location.href = '../';
                     s.getBalance();
+                    s.getDownlines();
 
 
+                    w.location.href = '../';
                 }
             }, function (response) {
                 s.loggingIn = !s.loggingIn;
@@ -82,21 +84,31 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
 
     s.getBalance = function () {
         h.post('../api/user/GetBalance?auth=' + s.getAuth + '&key=' + s.getKey + '&id=' + s.getId).success(function (data) {
-            if (data.errCode) {
-                s.loggingIn = !s.loggingIn;
-            }
-            else {
-                s.userBalance = data;
-                w.sessionStorage.setItem("bal", JSON.stringify(data));
-                console.log(s.userBalance);
-                s.loggingIn = !s.loggingIn;
-                w.location.href = '../';
-            }
-
-
-
+            s.userBalance = data.balance;
+            w.sessionStorage.setItem("bal", JSON.stringify(data["data"]));
+            w.location.href = '../';
+            //    w.sessionStorage.setItem("bal", JSON.stringify(data));
+            console.log(s.userBalance);
         })
+
+
     }
+
+    s.getDownlines = function () {
+        h.post('../api/user/GetDownlines?auth=' + s.getAuth + '&key=' + s.getKey + '&id=' + s.getId).success(function (data) {
+            s.userDownlines = data;
+            w.sessionStorage.setItem("downlines", JSON.stringify(data["data"]));
+
+            w.location.href = '../';
+            // console.log(s.userDownlines.balance_id);
+            //  w.sessionStorage.setItem("downlines", JSON.stringify(data));
+            console.log(s.userDownlines);
+        })
+
+    }
+
+
+
     s.register = function () {
         console.log(s.username, s.password);
         if (s.username != null && s.password != null && s.cPassword != null && s.userCaptcha != null) {

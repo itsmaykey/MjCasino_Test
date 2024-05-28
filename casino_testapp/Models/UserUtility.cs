@@ -58,6 +58,39 @@ namespace casino_testapp.Models
 
     }
 
+    public class userDownLinesResponse
+    {
+        public int errCode { get; set; }
+
+        public List<userDownLines> downlines {get; set;}
+    }
+
+    public class userDownLines {
+
+        public int balance_sum { get; set; }
+        public string balance_network { get; set; }
+        public string balance_referrer { get; set; }
+        public string balance_id { get; set; }
+        public string balance_username { get; set; }
+        public string balance_tag { get; set; }
+        public string balance_status { get; set; }
+        public string balance_created { get; set; }
+    }
+
+
+    public class userDownLinesData
+    {
+
+        public int balance_sum { get; set; }
+        public string balance_network { get; set; }
+        public string balance_referrer { get; set; }
+        public string balance_id { get; set; }
+        public string balance_username { get; set; }
+        public string balance_tag { get; set; }
+        public string balance_status { get; set; }
+        public string balance_created { get; set; }
+    }
+    
 
   
     
