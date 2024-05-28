@@ -17,7 +17,7 @@ namespace casino_testapp.Controllers
     {
         [HttpPost]
         [Route("Login")]
-        public async Task<IHttpActionResult> Login(string username, string password)
+        public async Task<IHttpActionResult> Login(string username, string password, string host)
         {
             
             var authUtility = new AuthUtility(username, password);
@@ -49,7 +49,10 @@ namespace casino_testapp.Controllers
 
                 var validateResponseString = await validateResponse.Content.ReadAsStringAsync();
                 var valid = JsonConvert.DeserializeObject<ValidateReponse>(validateResponseString);
-                
+                if (valid.errCode == 0)
+                {
+                    valid.data.referralLink = host + "/Authorization/Registration?referral=" + valid.data.id;
+                }
                 return Ok(valid);
             }
             catch (Exception)

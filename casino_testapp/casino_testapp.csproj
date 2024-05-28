@@ -1182,7 +1182,9 @@
     <Content Include="Content\assets\vendor\tinymce\package.json" />
     <Content Include="Content\assets\vendor\tinymce\README.md" />
     <Content Include="Content\toastr.min.css" />
+    <None Include="Properties\PublishProfiles\auto-fill - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Autofill.pubxml" />
+    <None Include="Properties\PublishProfiles\casinotestapp20240527001913 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Mjcasino.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

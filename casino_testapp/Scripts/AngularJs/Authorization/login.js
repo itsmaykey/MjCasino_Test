@@ -5,7 +5,9 @@
 /// <reference path="C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\Views/Shared/_Layout.cshtml" />
 
 var app = angular.module('loginApp', []);
-app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$window', function (s, rs, h, f, w) {
+app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$window', '$location', function (s, rs, h, f, w, l) {
+
+    
 
     s.username;
     s.password;
@@ -20,6 +22,7 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
     s.userCaptcha;
     s.captchaMessage;
     s.forangulaycopy;
+    s.refferalCode;
 
 
     s.userData = JSON.parse(w.sessionStorage.getItem("user"));
@@ -37,12 +40,21 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
     s.getAuth;
     s.getId;
 
+    s.getReferralCode = function () {
+        var url = l.absUrl().split('?')[1];
+        if (url != null) {
+            s.referralCode = url.split('=')[1];
+        }
+    }
+
+    s.getReferralCode();
+
 
     s.login = function () {
         console.log(s.username, s.password);
         if (s.username != null && s.password != null) {
             s.loggingIn = !s.loggingIn;
-            h.post("../api/Authorization/Login?username=" + s.username + "&password=" + s.password).then(function (data) {
+            h.post("../api/Authorization/Login?username=" + s.username + "&password=" + s.password + "&host=" + location.host).then(function (data) {
                 //console.log(data);
                 if (data.data.errCode) {
                     s.loggingIn = !s.loggingIn;
@@ -59,11 +71,10 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
                     s.getAuth = angular.copy(s.forangulaycopy.auth);
                     s.getId = angular.copy(s.forangulaycopy.id);
 
-                    /// console.log(data.data.auth);
+                    console.log(data.data);
                     w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
                     // console.log(JSON.parse(w.sessionStorage.getItem("user")));
                     s.loggingIn = !s.loggingIn;
-                    // w.location.href = '../';
                     s.getBalance();
 
 
@@ -105,7 +116,7 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
             if (isValidated) {
                 if (s.password == s.cPassword) {
                     s.loggingIn = !s.loggingIn;
-                    h.post("../api/Authorization/Register?username=" + s.username + "&password=" + s.password + "&referrer=" + s.referrer).success(function (data) {
+                    h.post("../api/Authorization/Register?username=" + s.username + "&password=" + s.password + "&referrer=" + s.referralCode).success(function (data) {
                         if (data.data.errCode) {
                             s.loggingIn = !s.loggingIn;
                             Swal.fire({

@@ -81,6 +81,7 @@ namespace casino_testapp.Models
         public string created { get; set; }
         public string auth { get; set; }
         public string key { get; set; }
+        public string referralLink { get; set; }
     }
 
     
