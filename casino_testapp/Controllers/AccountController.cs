@@ -21,7 +21,7 @@ namespace casino_testapp.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -123,7 +123,7 @@ namespace casino_testapp.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -158,8 +158,8 @@ namespace casino_testapp.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -274,8 +274,8 @@ namespace casino_testapp.Controllers
             return View();
         }
 
-        
-       //  POST: /Account/ExternalLogin
+
+        //  POST: /Account/ExternalLogin
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -320,8 +320,8 @@ namespace casino_testapp.Controllers
             return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
         }
 
-        
-       //  GET: /Account/ExternalLoginCallback
+
+        //  GET: /Account/ExternalLoginCallback
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
@@ -350,7 +350,7 @@ namespace casino_testapp.Controllers
             }
         }
 
-        
+
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
         [AllowAnonymous]
@@ -388,8 +388,8 @@ namespace casino_testapp.Controllers
             return View(model);
         }
 
-        
-      //   POST: /Account/LogOff
+
+        //   POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
@@ -402,15 +402,6 @@ namespace casino_testapp.Controllers
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
-        {
-            return View();
-        }
-
-        public ActionResult _Deposit()
-        {
-            return View();
-        }
-        public ActionResult _Withdraw()
         {
             return View();
         }
@@ -475,5 +466,14 @@ namespace casino_testapp.Controllers
             }
         }
         #endregion
+
+        public ActionResult Deposit()
+        {
+            return View();
+        }
+        public ActionResult Withdraw()
+        {
+            return View();
+        }
     }
 }
