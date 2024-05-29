@@ -93,52 +93,6 @@ C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testa
 C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-<<<<<<< HEAD
-E:\MjCasino_Test\casino_testapp\bin\casino_testapp.dll.config
-E:\MjCasino_Test\casino_testapp\bin\casino_testapp.dll
-E:\MjCasino_Test\casino_testapp\bin\casino_testapp.pdb
-E:\MjCasino_Test\casino_testapp\bin\CaptchaMvc.dll
-E:\MjCasino_Test\casino_testapp\bin\CaptchaMvc.pdb
-E:\MjCasino_Test\casino_testapp\bin\CaptchaMvc.xml
-E:\MjCasino_Test\casino_testapp\bin\Newtonsoft.Json.xml
-E:\MjCasino_Test\casino_testapp\bin\Newtonsoft.Json.Bson.pdb
-E:\MjCasino_Test\casino_testapp\bin\Newtonsoft.Json.Bson.xml
-E:\MjCasino_Test\casino_testapp\bin\System.Buffers.xml
-E:\MjCasino_Test\casino_testapp\bin\System.Memory.xml
-E:\MjCasino_Test\casino_testapp\bin\System.Net.Http.Formatting.xml
-E:\MjCasino_Test\casino_testapp\bin\System.Runtime.CompilerServices.Unsafe.xml
-E:\MjCasino_Test\casino_testapp\bin\System.Threading.Tasks.Extensions.xml
-E:\MjCasino_Test\casino_testapp\bin\System.Web.Http.xml
-E:\MjCasino_Test\casino_testapp\bin\System.Web.Http.WebHost.xml
-E:\MjCasino_Test\casino_testapp\bin\System.Web.Helpers.xml
-E:\MjCasino_Test\casino_testapp\bin\System.Web.Mvc.xml
-E:\MjCasino_Test\casino_testapp\bin\System.Web.Optimization.xml
-E:\MjCasino_Test\casino_testapp\bin\System.Web.Razor.xml
-E:\MjCasino_Test\casino_testapp\bin\System.Web.WebPages.xml
-E:\MjCasino_Test\casino_testapp\bin\System.Web.WebPages.Deployment.xml
-E:\MjCasino_Test\casino_testapp\bin\System.Web.WebPages.Razor.xml
-E:\MjCasino_Test\casino_testapp\bin\Antlr3.Runtime.pdb
-E:\MjCasino_Test\casino_testapp\bin\EntityFramework.xml
-E:\MjCasino_Test\casino_testapp\bin\EntityFramework.SqlServer.xml
-E:\MjCasino_Test\casino_testapp\bin\Microsoft.AspNet.Identity.Core.xml
-E:\MjCasino_Test\casino_testapp\bin\Microsoft.AspNet.Identity.Owin.xml
-E:\MjCasino_Test\casino_testapp\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.xml
-E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Host.SystemWeb.xml
-E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.xml
-E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Facebook.xml
-E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Cookies.xml
-E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.OAuth.xml
-E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Google.xml
-E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.Twitter.xml
-E:\MjCasino_Test\casino_testapp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.csproj.AssemblyReference.cache
-E:\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.csproj.CoreCompileInputs.cache
-E:\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.csproj.CopyComplete
-E:\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.dll
-E:\MjCasino_Test\casino_testapp\obj\Debug\casino_testapp.pdb
-=======
->>>>>>> 208bf4e7f3dab9663c6f22fe529eb7fbc7639699
 E:\MjCasino_Test\casino_testapp\bin\Antlr3.Runtime.dll
 E:\MjCasino_Test\casino_testapp\bin\EntityFramework.dll
 E:\MjCasino_Test\casino_testapp\bin\EntityFramework.SqlServer.dll

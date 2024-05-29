@@ -72,7 +72,6 @@ namespace casino_testapp.Controllers
                 throw;
             }
         }
-
         [HttpPost]
         [Route("GetDownlines")]
         public async Task<IHttpActionResult> GetDownlines(string auth, string id, string key)
@@ -92,27 +91,60 @@ namespace casino_testapp.Controllers
 
                 var responseJsonString = await response.Content.ReadAsStringAsync();
                 var objDeserialized = JsonConvert.DeserializeObject<userDownLinesResponse>(responseJsonString);
-            //       int ibj = objDeserialized.downlines.Count;
-            //    // var sortedGames = objDeserialized.data.data.games.Contains(categoryCode);
-            //    var Downlines = new List<userDownLinesData>();
-            //    for (var i = 0; i < ibj; i++)
-            //    {
-            //        var userDownlines = new userDownLinesData();
-            //        userDownlines.balance_created = objDeserialized.downlines[i].balance_created;
-            //        userDownlines.balance_id = objDeserialized.downlines[i].balance_id;
-            //        userDownlines.balance_network = objDeserialized.downlines[i].balance_network;
-            //        userDownlines.balance_referrer = objDeserialized.downlines[i].balance_referrer;
-            //        userDownlines.balance_status = objDeserialized.downlines[i].balance_status;
-            //        userDownlines.balance_sum = objDeserialized.downlines[i].balance_sum;
-            //        userDownlines.balance_tag = objDeserialized.downlines[i].balance_tag;
-            //        userDownlines.balance_username = objDeserialized.downlines[i].balance_username;
-            //          Downlines.Add(userDownlines);
-            //}
-
                 return Ok(objDeserialized);
                
             }
             catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        [HttpPost]
+        [Route("PostTransfer")]
+        public async Task<IHttpActionResult> PostTransfer(
+            string auth, string id, string key, string username, string network, string tag,
+           string transfer_to_network, string transfer_to_id, string transfer_to_username, string transfer_to_tag, string transfer_to_referrer,  string transfer_to_amount)
+        {
+            var getbase = new GameUtility();
+            var getData = new TransferUtility(auth, id, key, username, network, tag,
+                                               transfer_to_network, transfer_to_id, transfer_to_username, transfer_to_tag, transfer_to_referrer, transfer_to_amount);
+            var httpClient = new HttpClient();
+            try
+            {
+                var response = await httpClient.PostAsync
+                    (
+                    getbase.getBaseUrl("/transaction/transfer/balance"),
+                    new FormUrlEncodedContent(
+                        getData.postTransferKey()
+                        )
+                    );
+                
+                var responseJsonString = await response.Content.ReadAsStringAsync();
+                var objDeserialized = JsonConvert.DeserializeObject<TransferResponse>(responseJsonString);
+                if (objDeserialized.errCode >= 1)
+                {
+                    return Ok(new
+                    {
+                          icon = "error",
+                          title = "Invalid Response!",
+                          text = "Please Contact the Provider",
+                    });
+                }
+                else
+                {
+                    return Ok(new
+                    {
+                         icon ="success",
+                         title = "Insufficient Balance!",
+                         text = "Please add fund first",
+                    });
+                }
+ 
+            }
+            catch
             {
 
                 throw;

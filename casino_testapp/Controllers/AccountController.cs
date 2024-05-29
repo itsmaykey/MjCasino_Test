@@ -406,6 +406,15 @@ namespace casino_testapp.Controllers
             return View();
         }
 
+        public ActionResult _Deposit()
+        {
+            return View();
+        }
+        public ActionResult _Withdraw()
+        {
+            return View();
+        }
+
 
 
         #region Helpers

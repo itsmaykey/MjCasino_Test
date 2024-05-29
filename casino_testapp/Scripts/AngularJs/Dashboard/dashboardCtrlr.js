@@ -3,6 +3,8 @@ app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', '$window', funct
 
     s.Gamelist = [];
     s.liveGames = [];
+    s.popularGames = [];
+    s.tableGames = [];
     s.limit = 7;
     s.userIP;
     fetch('https://api.ipify.org?format=json')
@@ -24,71 +26,10 @@ app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', '$window', funct
     }
   
 
-    
-    s.getLivegames = function () {
-        h.post('../api/GamesApi/GetVendorGames?categoryCode=LIVE' + '&code=EVOLIVE').success(function (data) {
-            // console.log(data);
-            s.liveGames = data.ConvertedData;
-           // console.log(s.liveGames);
-            //            s.Gamelist = data       ;   
-            //       console.log(s.Gamelist);
-
-            //        // if(s.Gamelist.gameType == "SLOTS") {
-            //        //     s.
-            //        // }
-        })
-    }
-    s.getLivegames();
-    //s.getVendors();
-
-    //s.getVendorGames = function () {
-    //    h.post("../api/GamesApi/GetVendorGames?code=JL&page=1&size=100").success(function (data) {
-    //            s.Gamelist = data       ;   
-    //       console.log(s.Gamelist);
-
-    //        // if(s.Gamelist.gameType == "SLOTS") {
-    //        //     s.
-    //        // }
-
-    //    })
-    //}
-    //s.getVendorGames();
-
-    //s.gameUrl = function () {
-    //    h.post('../api/GamesApi/GetVendorGameUrl?code=JL_1&clientIP=175.176.95.11').success(function (data) {
-    //        s.gameURL = data;
-    //        console.log(s.gameURL);
-    //    })
-    //}
-
-    //s.gameUrl();
-
-   
-
-   
-    // s.gamelist_arr = s.p;
-    // s.Gamelist = [];
-    // for (let i = 0; i < s.gamelist_arr.length; i++) {
-
-    //     s.Gamelist.push({
-
-    //         Code: s.gamelist_arr[i][0],
-    //         Name: s.gamelist_arr[i][1],
-    //         category: s.gamelist_arr[i][2],
-    //         GameImg: s.gamelist_arr[i][3],
-    //         NA: s.gamelist_arr[i][4],
-    //         Language: s.gamelist_arr[i][5],
-    //         Platform: s.gamelist_arr[i][6],
-    //         Currency: s.gamelist_arr[i][7],
-    //     });
-    // }
-    //console.log(s.Gamelist.slice(0,s.limit))
-
     s.viewmore = function () {
         s.limit += 10;
        // console.log(s.limit);
     }
-
     s.gameURL = "";
     s.getdata = function (a) {
       //  console.log(a);
@@ -121,9 +62,7 @@ app.controller('dashboardCtrlr', ['$scope', '$http', '$filter', '$window', funct
           
         })
     }
-
 }
-
 s.username = "";
 s.getAuth ="";
 s.getId = "";
@@ -135,5 +74,205 @@ if (s.userData != null) {
     s.getKey = s.userData.data['key'];
     s.getId = s.userData.data['id'];
 }
+
+
+s.arrPopularGames = 
+[
+    [
+        "JL_1",
+        "Royal Fishing",
+        "FISHING",
+        "https://trendytreasures.art/game/JL/FISH/JL_1.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ],
+    [
+        "CQ9_10",
+        "Lucky Bats",
+        "SLOTS",
+        "https://trendytreasures.art/game/CQ9/Slots/CQ9_10.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ],
+    [
+        "JL_103",
+        "Golden Empire",
+        "SLOTS",
+        "https://trendytreasures.art/game/JL/Slots/JL_103.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ],
+    [
+        "SPNX_5f6c4c9f2a9fb35188b0eb1a",
+        "Lucky God",
+        "SLOTS",
+        "https://trendytreasures.art/game/SPNX/Slots/SPNX_5f6c4c9f2a9fb35188b0eb1a.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ],
+    [
+        "PP_1001",
+        "Dragon Tiger",
+        "LIVE",
+        "https://trendytreasures.art/game/PP/LIVE/PP_1001.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ],
+    [
+        "PP_1101",
+        "Sweet Bonanza Candyland",
+        "LIVE",
+        "https://trendytreasures.art/game/PP/LIVE/PP_1101.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ],
+    [
+        "SPNX_5f4f26f96f589e3bd48ec18e",
+        "Outlaw Rich",
+        "SLOTS",
+        "https://trendytreasures.art/game/SPNX/Slots/SPNX_5f4f26f96f589e3bd48ec18e.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ]
+]
+for(let i = 0; i < s.arrPopularGames.length; i++){
+    s.popularGames.push({
+        gameCode: s.arrPopularGames[i][0],
+        gameName : s.arrPopularGames[i][1],
+        gameType : s.arrPopularGames[i][2],
+        gameCover: s.arrPopularGames[i][3],
+        gameNull : s.arrPopularGames[i][4],
+        language : s.arrPopularGames[i][5],
+        platform : s.arrPopularGames[i][6],
+        currency : s.arrPopularGames[i][7], }); 
+       }
+       console.log(s.popularGames);
+
+
+s.arrTableGames = [
+    [
+        "EVOLIVE_PowerInfiniteBJ1",
+        "Power Blackjack",
+        "LIVE",
+        "https://trendytreasures.art/game/EVOLIVE/LIVE/EVOLIVE_PowerInfiniteBJ1.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ],
+    [
+        "EVOLIVE_cpxl81x0rgi34cmo",
+        "Blackjack VIP B",
+        "LIVE",
+        "https://trendytreasures.art/game/EVOLIVE/LIVE/EVOLIVE_cpxl81x0rgi34cmo.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ],
+    [
+        "EVOLIVE_LightningDice001",
+        "Lightning Dice",
+        "LIVE",
+        "https://trendytreasures.art/game/EVOLIVE/LIVE/EVOLIVE_LightningDice001.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ],
+    [
+        "EVOLIVE_LightningBac0001",
+        "Lightning Baccarat",
+        "LIVE",
+        "https://trendytreasures.art/game/EVOLIVE/LIVE/EVOLIVE_LightningBac0001.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ],
+    [
+        "EVOLIVE_n5emwq5c5dwepwam",
+        "Three Card Poker",
+        "LIVE",
+        "https://trendytreasures.art/game/EVOLIVE/LIVE/EVOLIVE_n5emwq5c5dwepwam.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ],
+    [
+        "EVOLIVE_NoCommBac0000001",
+        "No Commission Baccarat",
+        "LIVE",
+        "https://trendytreasures.art/game/EVOLIVE/LIVE/EVOLIVE_NoCommBac0000001.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ],
+    [
+        "EVOLIVE_rng-bj-lightning",
+        "First Person Lightning Blackjack",
+        "RNG",
+        "https://trendytreasures.art/game/EVOLIVE/LIVE/EVOLIVE_rng-bj-lightning.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ],
+]
+for(let i = 0; i < s.arrTableGames.length; i++){
+    s.tableGames.push({
+        gameCode: s.arrTableGames[i][0],
+        gameName : s.arrTableGames[i][1],
+        gameType : s.arrTableGames[i][2],
+        gameCover: s.arrTableGames[i][3],
+        gameNull : s.arrTableGames[i][4],
+        language : s.arrTableGames[i][5],
+        platform : s.arrTableGames[i][6],
+        currency : s.arrTableGames[i][7], }); 
+       }
+       console.log(s.tableGames);
+
+s.arrLiveGames =
+[
+    [
+        "EVOLIVE_CrazyTime0000001",
+        "Crazy Time",
+        "LIVE",
+        "https://trendytreasures.art/game/EVOLIVE/LIVE/EVOLIVE_CrazyTime0000001.png",
+        null,
+        "de,en,es,fr,hi,hk,id,it,ja,ko,my,pt,ru,th,tl,tr,vi,zh",
+        "H5,WEB",
+        "PHP"
+    ],
+]
+for(let i = 0; i < s.arrLiveGames.length; i++){
+    s.liveGames.push({
+        gameCode: s.arrLiveGames[i][0],
+        gameName : s.arrLiveGames[i][1],
+        gameType : s.arrLiveGames[i][2],
+        gameCover: s.arrLiveGames[i][3],
+        gameNull : s.arrLiveGames[i][4],
+        language : s.arrLiveGames[i][5],
+        platform : s.arrLiveGames[i][6],
+        currency : s.arrLiveGames[i][7], }); 
+       }
+       console.log(s.liveGames);
+
 
 }])

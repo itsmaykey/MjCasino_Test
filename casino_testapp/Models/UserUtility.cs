@@ -10,6 +10,7 @@ namespace casino_testapp.Models
        private readonly string auth;
        private readonly string id;
        private readonly string key;
+
         public UserUtility(string auth, string id, string key)
         {
             this.auth = auth;

@@ -210,6 +210,7 @@
     <Compile Include="Models\GameUtility.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\TransferUtilityController.cs" />
     <Compile Include="Models\UserUtility.cs" />
     <Compile Include="Models\Vendors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1187,6 +1188,7 @@
     <Content Include="Content\assets\vendor\tinymce\README.md" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="bin\casino_testapp.dll.config" />
+    <None Include="Properties\PublishProfiles\Autofill.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1250,10 +1252,11 @@
     <Content Include="Views\Profile\Account.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
+    <Content Include="Views\Account\_Deposit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Views\TransferUtility\" />
     <Folder Include="Views\UserUtility\" />
   </ItemGroup>
   <ItemGroup>
