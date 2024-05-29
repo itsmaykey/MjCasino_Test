@@ -2,20 +2,9 @@
 var app = angular.module('layoutApp', []);
 app.controller('layoutCtrl', ['$scope', '$http', '$filter', '$window', function (s, h, f, w) {
 
-    s.getusername;
-    s.getnetwork;
-    s.getid;
-    s.getreferer;
-    s.gettag;
-    s.getauth;
-    s.getkey;
-    s.transfernetwork;
-    s.transferid;
-    s.transferusername;
-    s.transferreferer;
-    s.transferamount;
-
-  
+   
+    s.logged = false;
+    s.notlogged = true;
     s.getKey;
     s.getAuth;
     s.getId;
@@ -44,18 +33,9 @@ app.controller('layoutCtrl', ['$scope', '$http', '$filter', '$window', function 
         // console.log(u);
         // w3.displayObject("userName", u);
        
-
     }
-    else {
-        s.logged = false;
-        s.notlogged = true;
-    }
- 
-   
-   
 
-   
-   
+
     s.toLogin = function() {
         window.open("../Authorization/login", '_self');
 

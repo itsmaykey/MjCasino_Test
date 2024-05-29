@@ -92,27 +92,25 @@ namespace casino_testapp.Controllers
 
                 var responseJsonString = await response.Content.ReadAsStringAsync();
                 var objDeserialized = JsonConvert.DeserializeObject<userDownLinesResponse>(responseJsonString);
-                   int ibj = objDeserialized.downlines.Count;
-                // var sortedGames = objDeserialized.data.data.games.Contains(categoryCode);
-                var Downlines = new List<userDownLinesData>();
-                for (var i = 0; i < ibj; i++)
-                {
-                    var userDownlines = new userDownLinesData();
-                    userDownlines.balance_created = objDeserialized.downlines[i].balance_created;
-                    userDownlines.balance_id = objDeserialized.downlines[i].balance_id;
-                    userDownlines.balance_network = objDeserialized.downlines[i].balance_network;
-                    userDownlines.balance_referrer = objDeserialized.downlines[i].balance_referrer;
-                    userDownlines.balance_status = objDeserialized.downlines[i].balance_status;
-                    userDownlines.balance_sum = objDeserialized.downlines[i].balance_sum;
-                    userDownlines.balance_tag = objDeserialized.downlines[i].balance_tag;
-                    userDownlines.balance_username = objDeserialized.downlines[i].balance_username;
-                      Downlines.Add(userDownlines);
-            }
+            //       int ibj = objDeserialized.downlines.Count;
+            //    // var sortedGames = objDeserialized.data.data.games.Contains(categoryCode);
+            //    var Downlines = new List<userDownLinesData>();
+            //    for (var i = 0; i < ibj; i++)
+            //    {
+            //        var userDownlines = new userDownLinesData();
+            //        userDownlines.balance_created = objDeserialized.downlines[i].balance_created;
+            //        userDownlines.balance_id = objDeserialized.downlines[i].balance_id;
+            //        userDownlines.balance_network = objDeserialized.downlines[i].balance_network;
+            //        userDownlines.balance_referrer = objDeserialized.downlines[i].balance_referrer;
+            //        userDownlines.balance_status = objDeserialized.downlines[i].balance_status;
+            //        userDownlines.balance_sum = objDeserialized.downlines[i].balance_sum;
+            //        userDownlines.balance_tag = objDeserialized.downlines[i].balance_tag;
+            //        userDownlines.balance_username = objDeserialized.downlines[i].balance_username;
+            //          Downlines.Add(userDownlines);
+            //}
 
-                return Ok(new
-                {
-                    ConvertedData = Downlines
-                });
+                return Ok(objDeserialized);
+               
             }
             catch (Exception)
             {
