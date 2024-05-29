@@ -8,7 +8,7 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_ViewDialogWidth>600</WebStackScaffolding_ViewDialogWidth>
-    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
     <Controller_SelectedScaffolderID>ApiControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/Web API</Controller_SelectedScaffolderCategoryPath>
     <UseIISExpress>true</UseIISExpress>
@@ -21,7 +21,8 @@
 <<<<<<< HEAD
     <NameOfLastUsedPublishProfile>E:\MjCasino_Test\casino_testapp\Properties\PublishProfiles\casinotestapp20240527001913 - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
 ======= -->
-    <NameOfLastUsedPublishProfile>Autofill</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>E:\MjCasino_Test\casino_testapp\Properties\PublishProfiles\casinotestapp20240527001913 - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <UseGlobalApplicationHostFile />
     <!-- >>>>>>> 208bf4e7f3dab9663c6f22fe529eb7fbc7639699 -->
   </PropertyGroup>
   <ProjectExtensions>

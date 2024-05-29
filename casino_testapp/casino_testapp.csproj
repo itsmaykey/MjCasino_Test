@@ -1189,6 +1189,7 @@
     <Content Include="Content\toastr.min.css" />
     <Content Include="bin\casino_testapp.dll.config" />
     <None Include="Properties\PublishProfiles\Autofill.pubxml" />
+    <None Include="Properties\PublishProfiles\casinotestapp20240527001913 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

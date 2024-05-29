@@ -41,7 +41,6 @@ C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testa
 E:\MjCasino_Test\casino_testapp\bin\casino_testapp.dll.config
 E:\MjCasino_Test\casino_testapp\bin\casino_testapp.dll
 E:\MjCasino_Test\casino_testapp\bin\casino_testapp.pdb
-E:\MjCasino_Test\casino_testapp\bin\CaptchaMvc.dll
 E:\MjCasino_Test\casino_testapp\bin\CaptchaMvc.pdb
 E:\MjCasino_Test\casino_testapp\bin\CaptchaMvc.xml
 E:\MjCasino_Test\casino_testapp\obj\Release\casino_testapp.csproj.AssemblyReference.cache
