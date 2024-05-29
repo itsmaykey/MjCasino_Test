@@ -25,7 +25,7 @@ app.controller('fishCtrlr', ['$scope', '$http', '$filter', '$window', function (
     fetch('https://api.ipify.org?format=json')
     .then(response => response.json())
     .then(data => {
-        console.log('Your Public IP Address:', data.ip);
+    //    console.log('Your Public IP Address:', data.ip);
         s.userIP = angular.copy(data.ip);
     })
     .catch(error => {

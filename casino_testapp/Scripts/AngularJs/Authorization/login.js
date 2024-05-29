@@ -5,7 +5,9 @@
 /// <reference path="C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\Views/Shared/_Layout.cshtml" />
 
 var app = angular.module('loginApp', []);
-app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$window', function (s, rs, h, f, w) {
+app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$window', '$location', function (s, rs, h, f, w, l) {
+
+    
 
     s.username;
     s.password;
@@ -21,10 +23,10 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
     s.userCaptcha;
     s.captchaMessage;
     s.forangulaycopy;
+
+
     s.userData = JSON.parse(w.sessionStorage.getItem("user"));
-    s.userBalance = JSON.parse(w.sessionStorage.getItem("bal"));
-    s.userDownlines = JSON.parse(w.sessionStorage.getItem("downlines"));
-    if (s.userData != null && s.userBalance != null && s.userDownlines != null) {
+    if (s.userData != null) {
         console.log(true);
        w.location.href = '../';
         s.checkCurrentUser = !s.checkCurrentUser;
@@ -37,12 +39,21 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
     s.getAuth;
     s.getId;
 
+    s.getReferralCode = function () {
+        var url = l.absUrl().split('?')[1];
+        if (url != null) {
+            s.referralCode = url.split('=')[1];
+        }
+    }
+
+    s.getReferralCode();
+
 
     s.login = function () {
         console.log(s.username, s.password);
         if (s.username != null && s.password != null) {
             s.loggingIn = !s.loggingIn;
-            h.post("../api/Authorization/Login?username=" + s.username + "&password=" + s.password).then(function (data) {
+            h.post("../api/Authorization/Login?username=" + s.username + "&password=" + s.password + "&host=" + location.host).then(function (data) {
                 //console.log(data);
                 if (data.data.errCode) {
                     s.loggingIn = !s.loggingIn;
@@ -52,22 +63,24 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
                         icon: "warning"
                     });
                 } else {
-                    s.userData = data;
-                    s.forangulaycopy = data.data.data;
-                    console.log(s.userData);
-                    s.getKey = angular.copy(s.forangulaycopy.key);
-                    s.getAuth = angular.copy(s.forangulaycopy.auth);
-                    s.getId = angular.copy(s.forangulaycopy.id);
-
-                    /// console.log(data.data.auth);
+                    //s.userData = data;
+                    //s.forangulaycopy = data.data.data;
+                    console.log(data);
                     w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
-                    s.getBalance();
-                    s.getDownlines();
-                    // console.log(JSON.parse(w.sessionStorage.getItem("user")));
-                //balance
-              
-                //downlines
-              
+                    console.log(JSON.parse(w.sessionStorage.getItem("user")));
+                    
+                    //s.getKey = angular.copy(s.forangulaycopy.key);
+                    //s.getAuth = angular.copy(s.forangulaycopy.auth);
+                    //s.getId = angular.copy(s.forangulaycopy.id);
+
+                    //console.log(data.data);
+                    //w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
+                    //// console.log(JSON.parse(w.sessionStorage.getItem("user")));
+
+                    //s.getBalance();
+                    //s.getDownlines();
+                    s.loggingIn = !s.loggingIn;
+
 
                 s.loggingIn = !s.loggingIn;
                 w.location.href = '../';
@@ -85,46 +98,24 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
     }
     s.getBalance = function () {
         h.post('../api/user/GetBalance?auth=' + s.getAuth + '&key=' + s.getKey + '&id=' + s.getId).success(function (data) {
-            if (data.errCode) {
-                s.loggingIn = !s.loggingIn;
-                Swal.fire({
-                    title: "ERROR",
-                    text: data.data.message,
-                    icon: "warning"
-                });
-            }
-            else {
-                s.userBalance = data;
-                w.sessionStorage.setItem("bal", JSON.stringify(data));
-                console.log(JSON.parse(w.sessionStorage.getItem("bal")))
-                s.loggingIn = !s.loggingIn;
-                w.location.href = '../';
-                //    w.sessionStorage.setItem("bal", JSON.stringify(data));
-                console.log(s.userBalance);
-            }
+            s.userBalance = data.balance;
+            w.sessionStorage.setItem("bal", JSON.stringify(data));
+            //w.location.href = '../';
+            //    w.sessionStorage.setItem("bal", JSON.stringify(data));
+            //console.log(w.sessionStorage.getItem("bal"));
+            //console.log("====================userbalance==========================");
         })
     }
 
     s.getDownlines = function () {
         h.post('../api/user/GetDownlines?auth=' + s.getAuth + '&key=' + s.getKey + '&id=' + s.getId).success(function (data) {
-            if (data.errCode) {
-                s.loggingIn = !s.loggingIn;
-                Swal.fire({
-                    title: "ERROR",
-                    text: data.data.message,
-                    icon: "warning"
-                });
-            }
-            else {
-                s.userDownlines = data;
-                w.sessionStorage.setItem("downlines", JSON.stringify(data));
-                console.log(JSON.parse(w.sessionStorage.getItem("downlines")))
-                s.loggingIn = !s.loggingIn;
-                w.location.href = '../';
-                // console.log(s.userDownlines.balance_id);
-                //  w.sessionStorage.setItem("downlines", JSON.stringify(data));
-                console.log(s.userDownlines);
-            }
+            s.userDownlines = data;
+            w.sessionStorage.setItem("downlines", JSON.stringify(data["ConvertedData"]));
+            // console.log(s.userDownlines.balance_id);
+            //  w.sessionStorage.setItem("downlines", JSON.stringify(data));
+            //console.log(s.userDownlines);
+            //console.log(JSON.parse(w.sessionStorage.getItem("downlines")));
+            //console.log("==============================================");
         })
 
     }
@@ -139,7 +130,7 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
             if (isValidated) {
                 if (s.password == s.cPassword) {
                     s.loggingIn = !s.loggingIn;
-                    h.post("../api/Authorization/Register?username=" + s.username + "&password=" + s.password + "&referrer=" + s.referrer).success(function (data) {
+                    h.post("../api/Authorization/Register?username=" + s.username + "&password=" + s.password + "&referrer=" + s.referralCode).success(function (data) {
                         if (data.data.errCode) {
                             s.loggingIn = !s.loggingIn;
                             Swal.fire({

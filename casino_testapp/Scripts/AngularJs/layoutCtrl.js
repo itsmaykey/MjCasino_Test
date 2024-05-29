@@ -10,17 +10,28 @@ app.controller('layoutCtrl', ['$scope', '$http', '$filter', '$window', function 
     s.getId;
 
     s.userData = JSON.parse(w.sessionStorage.getItem("user"));
-    s.userBalance = JSON.parse(w.sessionStorage.getItem("bal"));
-    s.userDownlines = JSON.parse(w.sessionStorage.getItem("downlines"));
+
+    console.log(s.userData);
 
     if (s.userData != null) {
-        s.username = s.userData.data['username'];
-        s.getAuth = s.userData.data['auth'];
-        s.getKey = s.userData.data['key'];
-        s.getId = s.userData.data['id'];
-        console.log(s.userData);
+        s.username = s.userData.UserDetails.data.username;
+        s.getAuth = s.userData.UserDetails.data.auth;
+        s.getKey = s.userData.UserDetails.data.key;
+        s.getId = s.userData.UserDetails.data.id;
         s.logged = true;
         s.notlogged = false;
+        s.balance = s.userData.Balance;
+        s.downlines = s.userData.Downlines;
+
+        console.log(s.username);
+        console.log(s.getAuth);
+        console.log(s.getKey);
+        console.log(s.getId);
+        console.log(s.balance);
+        console.log(s.downlines);
+
+        // console.log(u);
+        // w3.displayObject("userName", u);
        
     }
 

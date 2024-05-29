@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Registration";
     Layout = null;
 }
@@ -10,19 +11,17 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>AutoFill</title>
+    <title>Pages / Login - NiceAdmin Bootstrap Template</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="~/Content/assets/img/logo.png" rel="icon">
+    <link href="~/Content/assets/img/favicon.png" rel="icon">
     <link href="~/Content/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="~/Content/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -65,12 +64,7 @@
                                     <img src="~/Content/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle" />
                                 </div> -->
 
-                                <div class="lds-ring" ng-show="checkCurrentUser">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>
+                                <div class="lds-ring" ng-show="checkCurrentUser"><div></div><div></div><div></div><div></div></div>
 
                                 <div ng-show="!checkCurrentUser">
                                     <div class="d-flex justify-content-center py-4">
@@ -86,24 +80,21 @@
 
                                             <div class="pt-4 pb-2">
                                                 <h5 class="card-title text-center pb-0 fs-4">Register Your Account</h5>
-                                                @*<p class="text-center small">Enter your username & password to
-                                                login</p>*@
+                                                @*<p class="text-center small">Enter your username & password to login</p>*@
                                             </div>
 
                                             <form class="row g-3 needs-validation" novalidate>
 
                                                 <div class="col-12">
                                                     <div class="form-floating">
-                                                        <input type="text" name="username" class="form-control"
-                                                            id="yourUsername" ng-model="username" required>
+                                                        <input type="text" name="username" class="form-control" id="yourUsername" ng-model="username" required>
                                                         <label for="yourUsername">Username</label>
                                                     </div>
                                                     <div class="invalid-feedback">Please enter your username.</div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-floating">
-                                                        <input type="password" name="password" class="form-control"
-                                                            id="yourPassword" ng-model="password" required>
+                                                        <input type="password" name="password" class="form-control" id="yourPassword" ng-model="password" required>
                                                         <label for="yourPassword">Password</label>
                                                     </div>
                                                     <div class="invalid-feedback">Please enter your password.</div>
@@ -111,52 +102,42 @@
 
                                                 <div class="col-12">
                                                     <div class="form-floating">
-                                                        <input type="password" name="password" class="form-control"
-                                                            id="yourcPassword" ng-model="cPassword" required>
+                                                        <input type="password" name="password" class="form-control" id="yourcPassword" ng-model="cPassword" required>
                                                         <label for="yourcPassword">Confirm Password</label>
                                                     </div>
                                                     <div class="invalid-feedback">Please confirm your password.</div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-floating">
-                                                        <input type="text" name="referral" class="form-control"
-                                                            id="yourReferral" ng-model="referrer">
+                                                        <input type="text" name="referral" class="form-control" id="yourReferral" ng-model="referralCode">
                                                         <label for="referrer">Referral Code</label>
                                                     </div>
                                                 </div>
 
                                                 <div style="height: 16px"></div>
-                                                <div class="alert alert-primary alert-dismissible fade show center"
-                                                    role="alert">
+                                                <div class="alert alert-primary alert-dismissible fade show center" role="alert">
                                                     <div class="center">
                                                         <div class="row">
                                                             <h6>CAPTCHA</h6>
                                                             <h1>{{equation}}</h1>
                                                         </div>
                                                     </div>
-                                                    @*<button type="button" class="btn-close"
-                                                    aria-label="Close"></button>*@
+                                                    @*<button type="button" class="btn-close" aria-label="Close"></button>*@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-floating">
-                                                        <input type="text" name="captcha" class="form-control"
-                                                            id="captcha" ng-model="userCaptcha" required>
+                                                        <input type="text" name="captcha" class="form-control" id="captcha" ng-model="userCaptcha" required>
                                                         <label for="referrer">Enter Captcha</label>
                                                     </div>
                                                 </div>
                                                 <h6 ng-hide="isRightCaptcha" style="color: red">{{captchaMessage}}</h6>
                                                 <div class="col-12" ng-hide="loggingIn">
                                                     <button id="authButton" class="btn btn-lg w-100" type="submit"
-                                                        ng-click="register();">
-                                                        Login
+                                                            ng-click="register();">
+                                                        Register
                                                     </button>
                                                 </div>
-                                                <div class="lds-ring" ng-show="loggingIn">
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
+                                                <div class="lds-ring" ng-show="loggingIn"><div></div><div></div><div></div><div></div></div>
                                                 <div class="col-12">
                                                     <p class="small mb-0">
                                                         Already have an account? <a href="/Authorization/Login">
@@ -220,3 +201,4 @@
 </body>
 
 </html>
+

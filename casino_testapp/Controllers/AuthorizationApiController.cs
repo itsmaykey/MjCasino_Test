@@ -17,7 +17,7 @@ namespace casino_testapp.Controllers
     {
         [HttpPost]
         [Route("Login")]
-        public async Task<IHttpActionResult> Login(string username, string password)
+        public async Task<IHttpActionResult> Login(string username, string password, string host)
         {
             
             var authUtility = new AuthUtility(username, password);
@@ -49,8 +49,48 @@ namespace casino_testapp.Controllers
 
                 var validateResponseString = await validateResponse.Content.ReadAsStringAsync();
                 var valid = JsonConvert.DeserializeObject<ValidateReponse>(validateResponseString);
-                
-                return Ok(valid);
+                if (valid.errCode == 0)
+                {
+                    valid.data.referralLink = host + "/Authorization/Registration?referral=" + valid.data.id;
+                }
+
+                var getData = new UserUtility(valid.data.auth, valid.data.id, valid.data.key);
+                var balanceResponse = await httpClient.PostAsync
+                   (
+                   gameUtility.getBaseUrl("/transaction/get/balance"),
+                   new FormUrlEncodedContent(getData.getUserKey()));
+
+                var balanceJsonString = await response.Content.ReadAsStringAsync();
+                var balanceDeserialized = JsonConvert.DeserializeObject<userBalanceResponse>(responseJsonString);
+
+                var downlinesResponse = await httpClient.PostAsync
+                    (
+                    gameUtility.getBaseUrl("/register/get/agent/downlines"),
+                    new FormUrlEncodedContent(getData.getUserKey()));
+
+                var downlineJsonString = await downlinesResponse.Content.ReadAsStringAsync();
+                var downlineDeserialized = JsonConvert.DeserializeObject<userDownLinesResponse>(downlineJsonString);
+                var Downlines = new List<userDownLinesData>();
+                if (downlineDeserialized.downlines != null)
+                {
+                    int ibj = downlineDeserialized.downlines.Count();
+                    // var sortedGames = objDeserialized.data.data.games.Contains(categoryCode);
+                    for (var i = 0; i < ibj; i++)
+                    {
+                        var userDownlines = new userDownLinesData();
+                        userDownlines.balance_created = downlineDeserialized.downlines[i].balance_created;
+                        userDownlines.balance_id = downlineDeserialized.downlines[i].balance_id;
+                        userDownlines.balance_network = downlineDeserialized.downlines[i].balance_network;
+                        userDownlines.balance_referrer = downlineDeserialized.downlines[i].balance_referrer;
+                        userDownlines.balance_status = downlineDeserialized.downlines[i].balance_status;
+                        userDownlines.balance_sum = downlineDeserialized.downlines[i].balance_sum;
+                        userDownlines.balance_tag = downlineDeserialized.downlines[i].balance_tag;
+                        userDownlines.balance_username = downlineDeserialized.downlines[i].balance_username;
+                        Downlines.Add(userDownlines);
+                    }
+                }
+
+                return Ok(new { UserDetails = valid, Balance = balanceDeserialized, Downlines = Downlines });
             }
             catch (Exception)
             {
