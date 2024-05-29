@@ -98,5 +98,12 @@ app.controller('layoutCtrl', ['$scope', '$http', '$filter', '$window', function 
    }
 
 
+    s.signOut = function () {
+        console.log("llloooooggeddout!");
+        w.sessionStorage.removeItem("user");
+        w.location.href = '../Authorization/Login';
+    }
+
+
 }])
    
