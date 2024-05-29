@@ -5,7 +5,7 @@
 /// <reference path="C:\Users\DAVNOR\Documents\Visual Studio 2013\Projects\MjCasino_Test\casino_testapp\Views/Shared/_Layout.cshtml" />
 
 var app = angular.module('loginApp', []);
-app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$window', '$location', function (s, rs, h, f, w, l) {
+app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$window', '$location', '$timeout', function (s, rs, h, f, w, l, t) {
 
     
 
@@ -24,16 +24,17 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
     s.captchaMessage;
     s.forangulaycopy;
 
-
     s.userData = JSON.parse(w.sessionStorage.getItem("user"));
-    if (s.userData != null) {
-        console.log(true);
-        w.location.href = '../';
-        s.checkCurrentUser = !s.checkCurrentUser;
-    } else {
-        console.log(false);
-        s.checkCurrentUser = !s.checkCurrentUser;
-    }
+    t(function () {
+        if (s.userData != null) {
+            console.log(true);
+            w.location.href = '../';
+            //s.checkCurrentUser = !s.checkCurrentUser;
+        } else {
+            console.log(false);
+            s.checkCurrentUser = !s.checkCurrentUser;
+        }
+    }, 1000);
 
     s.getKey;
     s.getAuth;
@@ -54,18 +55,16 @@ app.controller('loginCtrlr', ['$scope', '$rootScope', '$http', '$filter', '$wind
         if (s.username != null && s.password != null) {
             s.loggingIn = !s.loggingIn;
             h.post("../api/Authorization/Login?username=" + s.username + "&password=" + s.password + "&host=" + location.host).then(function (data) {
-                //console.log(data);
-                if (data.data.errCode) {
+                if (data.data.UserDetails.errCode != 0) {
                     s.loggingIn = !s.loggingIn;
                     Swal.fire({
                         title: "ERROR",
-                        text: data.data.message,
+                        text: data.data.UserDetails.message,
                         icon: "warning"
                     });
                 } else {
                     //s.userData = data;
                     //s.forangulaycopy = data.data.data;
-                    console.log(data);
                     w.sessionStorage.setItem("user", JSON.stringify(data["data"]));
                     console.log(JSON.parse(w.sessionStorage.getItem("user")));
                     
